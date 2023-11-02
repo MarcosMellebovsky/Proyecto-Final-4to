@@ -22,4 +22,34 @@ public static class BD
             commandType: System.Data.CommandType.StoredProcedure);
         }
     }
+    public static void AgregarReseña(Reseña reseña)
+    {
+        using(SqlConnection db = new SqlConnection(connectionString))
+        {
+            string sp = "sp_AgregarReseña";
+            db.Execute(sp, new{@IdResto = reseña.IdRestaurante, @IdClient = reseña.IdCliente, @Comment = reseña.Comentario, @Valoracion = reseña.Valoracion}, 
+            commandType: System.Data.CommandType.StoredProcedure);
+        }
+    }
+    public static List<Restaurante> GetListaRestaurantes()
+    {
+        List<Restaurante> ListaRestaurantes = null;
+        using(SqlConnection db = new SqlConnection(connectionString))
+        {
+            string sp = "sp_GetListaRestaurantes";
+            ListaRestaurantes = db.Query<Restaurante>(sp, commandType: System.Data.CommandType.StoredProcedure).ToList();
+        }
+        return ListaRestaurantes;
+    }
+    public static Restaurante GetInfoRestaurante(int idRestauante)
+    {
+        Restaurante Restaurante = new Restaurante();
+        using(SqlConnection db = new SqlConnection(connectionString))
+        {
+            string sp = "sp_GetInfoRestaurante";
+            Restaurante = db.QueryFirstOrDefault<Restaurante>(sp,new{@IdRestaurante = idRestauante}, 
+            commandType: System.Data.CommandType.StoredProcedure);
+        }
+        return Restaurante;
+    }
 }
