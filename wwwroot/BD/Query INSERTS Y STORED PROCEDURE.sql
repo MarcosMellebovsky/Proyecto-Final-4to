@@ -26,7 +26,7 @@ BEGIN
 	VALUES(@IdRestaurante, @Nombree, @DescripcionMenu, @Precioo)
 END
 
-exec sp_AgregarMenu @IdRestaurante = IdFormRestaurante, @Nombree = NombreFormMenu, @DescripcionMenu = DescripcionMenuForm, @Precioo = PrecioMenu
+
 
 
 CREATE PROCEDURE sp_AgregarRestaurante
@@ -43,4 +43,29 @@ BEGIN
 	VALUES(@NomRestaurante, @Direccionn, @HoraApertura, @HoraClausura, @FechaFunda, @Img, @Descripcionn)
 END
 
-exec sp_AgregarRestaurante @NomRestaurante = NombreFormRestaurante, @Direccionn = DireccionForm, @HoraApertura = HoraAperturaForm, @HoraClausura = HoraClausuraForm, @FechaFunda = FechaFundacionForm, @Img = ImagenForm, @Descripcionn = DescripcionForm
+
+CREATE PROCEDURE sp_AgregarReseña
+@IdResto int,
+@IdClient int,
+@Comment varchar(500),
+@Valoracion int
+AS 
+BEGIN
+	INSERT INTO Reseña(IdRestaurante, IdCliente, Comentario, Valoracion)
+	VALUES(@IdResto, @IdClient, @Comment, @Valoracion)
+END
+
+
+CREATE PROCEDURE sp_GetListaRestaurantes
+AS 
+BEGIN
+	SELECT * FROM Restaurante
+END
+
+CREATE PROCEDURE sp_GetInfoRestaurante
+@IdRestaurante int
+AS 
+BEGIN
+	SELECT * FROM Restaurante WHERE IdRestaurante = @IdRestaurante
+END
+
