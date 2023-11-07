@@ -69,3 +69,47 @@ BEGIN
 	SELECT * FROM Restaurante WHERE IdRestaurante = @IdRestaurante
 END
 
+CREATE PROCEDURE sp_GetInfoMenu
+@IdRestaurante int
+AS 
+BEGIN
+	SELECT * FROM Menu WHERE IdRestaurante = @IdRestaurante
+END
+
+ALTER PROCEDURE sp_GetInfoReseña
+@IdRestaurante int,
+@IdCliente int
+AS 
+BEGIN
+	SELECT R.Valoracion, R.Comentario, C.NombreUsuario AS NombreUsuario FROM Reseña R
+	INNER JOIN Cliente C ON R.IdCliente = C.IdCliente
+	WHERE R.IdRestaurante = @IdRestaurante AND R.IdCliente = @IdCliente
+END
+
+
+CREATE PROCEDURE sp_GetListaReseñasDeUnRestaurante
+@IdRestaurante int
+AS 
+BEGIN
+	SELECT * FROM Reseña Where IdRestaurante = @IdRestaurante
+END
+
+ALTER PROCEDURE sp_Registro
+@Nombre varchar(50),
+@Contraseña varchar(50),
+@Email varchar(50),
+@Telefono varchar(50), 
+@NombreUsuario varchar(50)
+AS 
+BEGIN
+	INSERT INTO Cliente(Nombre, Contraseña, Email, Telefono, NombreUsuario)
+	VALUES(@Nombre, @Contraseña, @Email, @Telefono, @NombreUsuario)
+END
+
+CREATE PROCEDURE sp_VerificarCredenciales
+@userName varchar(50)
+AS
+BEGIN
+	SELECT * FROM Cliente WHERE NombreUsuario = @userName
+END
+

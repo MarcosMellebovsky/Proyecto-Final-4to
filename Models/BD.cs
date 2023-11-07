@@ -41,15 +41,75 @@ public static class BD
         }
         return ListaRestaurantes;
     }
-    public static Restaurante GetInfoRestaurante(int idRestauante)
+    public static Restaurante GetInfoRestaurante(int idRestaurante)
     {
         Restaurante Restaurante = new Restaurante();
         using(SqlConnection db = new SqlConnection(connectionString))
         {
             string sp = "sp_GetInfoRestaurante";
-            Restaurante = db.QueryFirstOrDefault<Restaurante>(sp,new{@IdRestaurante = idRestauante}, 
+            Restaurante = db.QueryFirstOrDefault<Restaurante>(sp,new{@IdRestaurante = idRestaurante}, 
             commandType: System.Data.CommandType.StoredProcedure);
         }
         return Restaurante;
+    }
+    public static Menu GetInfoMenu(int idRestaurante)
+    {
+        Menu Menu = new Menu();
+        using(SqlConnection db = new SqlConnection(connectionString))
+        {
+            string sp = "sp_GetInfoMenu";
+            Menu = db.QueryFirstOrDefault<Restaurante>(sp,new{@IdRestaurante = idRestaurante}, 
+            commandType: System.Data.CommandType.StoredProcedure);
+        }
+        return Menu;
+    }
+    public static Reseña GetInfoReseña(int idRestaurante, int idCliente)
+    {
+        Reseña reseña = new Reseña();
+        using(SqlConnection db = new SqlConnection(connectionString))
+        {
+            string sp = "sp_GetInfoReseña";
+            reseña = db.QueryFirstOrDefault<Restaurante>(sp,new{@IdRestaurante = idRestaurante, @IdCliente = idCliente}, 
+            commandType: System.Data.CommandType.StoredProcedure);
+        }
+        return reseña;
+    }
+    public static List<Reseña> GetListaReseñasDeUnRestaurante(int idRestaurante)
+    {
+        List<Reseña> ListaReseñas = null;
+        using(SqlConnection db = new SqlConnection(connectionString))
+        {
+            string sp = "sp_GetListaReseñasDeUnRestaurante";
+            ListaRestaurantes = db.Query<Restaurante>(sp,{@IdRestaurante = idRestaurante}, 
+            commandType: System.Data.CommandType.StoredProcedure).ToList();
+        }
+        return ListaRestaurantes;
+    }
+    public static void Registro(Cliente cliente)
+    {
+        using(SqlConnection db = new SqlConnection(connectionString))
+        {
+            string sp = "sp_Registro";
+            db.Execute(sp, new{@Nombre = cliente.Nombre, @Contraseña = cliente.Contraseña, @Email = cliente.Emial, @Telefono = cliente.Telefono}, 
+            commandType: System.Data.CommandType.StoredProcedure);
+        }
+    }
+    public static Cliente VerificarCredenciales(string UserName, string Contraseña)
+    {
+            string sp = "sp_VerificarCredenciales";
+            using (SqlConnection db = new SqlConnection(connectionString))
+        {
+            Cliente usuario = db.QueryFirstOrDefault<Cliente>(sp, new { userName = UserName }, 
+            commandType: System.Data.CommandType.StoredProcedure);
+
+            if (usuario != null && usuario.Contraseña == Contraseña)
+            {
+                return usuario; 
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }
