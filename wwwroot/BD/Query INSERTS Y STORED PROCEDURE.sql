@@ -81,7 +81,7 @@ ALTER PROCEDURE sp_GetInfoReseña
 @IdCliente int
 AS 
 BEGIN
-	SELECT R.Valoracion, R.Comentario, C.NombreUsuario AS NombreUsuario FROM Reseña R
+	SELECT R.Valoracion, R.Comentario, C.Nombre, C.Apellido FROM Reseña R
 	INNER JOIN Cliente C ON R.IdCliente = C.IdCliente
 	WHERE R.IdRestaurante = @IdRestaurante AND R.IdCliente = @IdCliente
 END
@@ -96,20 +96,20 @@ END
 
 ALTER PROCEDURE sp_Registro
 @Nombre varchar(50),
+@Apellido varchar(50),
 @Contraseña varchar(50),
-@Email varchar(50),
-@Telefono varchar(50), 
-@NombreUsuario varchar(50)
+@Email varchar(50)
 AS 
 BEGIN
-	INSERT INTO Cliente(Nombre, Contraseña, Email, Telefono, NombreUsuario)
-	VALUES(@Nombre, @Contraseña, @Email, @Telefono, @NombreUsuario)
+	INSERT INTO Cliente(Nombre, Apellido, Contraseña, Email)
+	VALUES(@Nombre, @Apellido, @Contraseña, @Email)
 END
 
-CREATE PROCEDURE sp_VerificarCredenciales
-@userName varchar(50)
+ALTER PROCEDURE sp_VerificarCredenciales
+@Email varchar(50)
 AS
 BEGIN
-	SELECT * FROM Cliente WHERE NombreUsuario = @userName
+	SELECT * FROM Cliente WHERE Email = @Email
 END
+
 

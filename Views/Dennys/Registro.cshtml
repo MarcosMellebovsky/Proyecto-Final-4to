@@ -1,0 +1,57 @@
+<body>
+    <main>
+      <div class="grilla">
+        <div class="imagen">
+            
+        </div>
+        <div class="padre">
+          <div class="formulario">
+            <div class="logo">
+              <img src="../IMG/logo-dennys.png">
+            </div>
+            <form action='@Url.Action("GuardarCliente", "Dennys")' class="div-form" onsubmit= "return validarContraseña()" method="post">
+              <div class="label-input">
+                <label for="nombre">Nombre*</label>
+                <input type="text" placeholder="Nombre" name="Nombre" required />
+              </div>
+              <div class="label-input">
+                <label for="nombre">Apellido*</label>
+                <input type="text" placeholder="Apellido" name="Apellido" required />
+              </div>
+
+              <div class="label-input">
+                <label for="nombre">Email*</label>
+                <input type="text" placeholder="Email" name="Email" required />
+              </div>
+              <div class="label-input">
+                <label for="nombre">Contraseña*</label>
+                <input type="password" placeholder="Contraseña" name="Contraseña" id="contraseña" required />
+              </div>
+              <div class="label-input">
+                <label for="nombre">Confirmar Contraseña*</label>
+                  <input type="password" placeholder="Contraseña" name="Contraseña" id="contraseña2"  required>
+              </div>
+                <p class="inc1" id="incorrecta1"></p>
+                <p class="inc2" id="incorrecta2"></p>
+              
+              <div class="padre-button">
+              <div class="div-boton">
+                <button class="button" type="submit">
+                  Registrarte
+                </button>
+                <div class="div-ya-tenes">
+                   <p class="p-ya-tenes">Ya tenes cuenta?</p>
+                   <a class="a-ya-tenes" href='@Url.Action("Login", "Dennys")'>Inicia Sesion</a>
+                </div>
+              </div>
+            </div>
+              
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
+
+

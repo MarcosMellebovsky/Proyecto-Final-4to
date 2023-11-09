@@ -1,22 +1,171 @@
-html {
-  font-size: 14px;
+
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@200&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.grilla{
+   
+    height: 100vh;
+    background-color: rgb(204, 62, 37);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+}
+.imagen{
+    background-image: url(../IMG/portada.png);
+    background-repeat: no-repeat;
+    background-size: 100vh;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4rem;
+    margin-top: 1rem;
+}
+.logo img{
+    width: 30%;
+}
+.padre{
+    
+    margin: 1rem;
+}
+.formulario{
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
+.div-form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10px;
+    padding: 40px;
+    gap: 30px; 
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    
+}
+.div-form label{
+    margin: .2rem;
+    font-family: 'Overpass', sans-serif;
+    font-weight: bold;
+}
+.label-input{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+.div-form input{
+    padding: .5rem;
+    border-radius: 10px;
+    border: none;
+    
+}
+.padre-button{
+    display: flex;
+    justify-content: center;
+}
+
+.div-boton{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+.button {
+    align-items: center;
+    appearance: none;
+    background-color: #EEF2FF;
+    border-radius: 8px;
+    border-width: 2px;
+   border: none;
+    box-shadow: rgba(83, 109, 254, 0.2) 0 2px 4px, rgba(83, 109, 254, 0.15) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: "JetBrains Mono", monospace;
+    height: 56px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 24px;
+    padding-right: 24px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: box-shadow 0.15s, transform 0.15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow, transform;
+    font-size: 20px;
   }
+  .button a {
+    color: black;
+    text-decoration: none;
+  }
+  
+  .button:focus {
+    outline: none;
+    box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(255, 255, 255, 0.4) 0 2px 4px, rgba(83, 109, 254, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  }
+  
+  .button:hover {
+    box-shadow: rgba(163, 163, 163, 0.3) 0 4px 8px, rgba(129, 129, 129, 0.2) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    transform: translateY(-2px);
+  }
+  
+  .button:active {
+    box-shadow: #D6D6E7 0 3px 7px inset;
+    transform: translateY(2px);
+  }
+   .div-ya-tenes{
+    display: flex;
+    justify-content: center;
+   
+    gap: 5px;
+   }
+   .p-ya-tenes{
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+   }
+   .a-ya-tenes{
+    color: #ffcb3d;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+/*registro*/
+.a-olvide{
+    padding: 2rem;
+}
+.kajka{
+    box-shadow: 0 2px 2px rgb(76, 76, 76);
+    
+}
+.a{
+    display: flex;
+    justify-content: center;
+    gap: 75px;
+    padding: 1rem;
+}
+.b{
+    display: flex;
+    justify-content: center;
+    gap: 75px;
+    padding: 1rem;
+}
+.c{
+    display: flex;
+    justify-content: center;
+    gap: 75px;
+    padding: 1rem;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-  margin-bottom: 60px;
-}

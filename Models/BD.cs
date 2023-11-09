@@ -58,7 +58,7 @@ public static class BD
         using(SqlConnection db = new SqlConnection(connectionString))
         {
             string sp = "sp_GetInfoMenu";
-            Menu = db.QueryFirstOrDefault<Restaurante>(sp,new{@IdRestaurante = idRestaurante}, 
+            Menu = db.QueryFirstOrDefault<Menu>(sp,new{@IdRestaurante = idRestaurante}, 
             commandType: System.Data.CommandType.StoredProcedure);
         }
         return Menu;
@@ -69,7 +69,7 @@ public static class BD
         using(SqlConnection db = new SqlConnection(connectionString))
         {
             string sp = "sp_GetInfoReseña";
-            reseña = db.QueryFirstOrDefault<Restaurante>(sp,new{@IdRestaurante = idRestaurante, @IdCliente = idCliente}, 
+            reseña = db.QueryFirstOrDefault<Reseña>(sp,new{@IdRestaurante = idRestaurante, @IdCliente = idCliente}, 
             commandType: System.Data.CommandType.StoredProcedure);
         }
         return reseña;
@@ -80,26 +80,26 @@ public static class BD
         using(SqlConnection db = new SqlConnection(connectionString))
         {
             string sp = "sp_GetListaReseñasDeUnRestaurante";
-            ListaRestaurantes = db.Query<Restaurante>(sp,{@IdRestaurante = idRestaurante}, 
+            ListaReseñas = db.Query<Reseña>(sp,new{@IdRestaurante = idRestaurante}, 
             commandType: System.Data.CommandType.StoredProcedure).ToList();
         }
-        return ListaRestaurantes;
+        return ListaReseñas;
     }
     public static void Registro(Cliente cliente)
     {
         using(SqlConnection db = new SqlConnection(connectionString))
         {
             string sp = "sp_Registro";
-            db.Execute(sp, new{@Nombre = cliente.Nombre, @Contraseña = cliente.Contraseña, @Email = cliente.Emial, @Telefono = cliente.Telefono}, 
+            db.Execute(sp, new{@Nombre = cliente.Nombre, @Apellido = cliente.Apellido, @Contraseña = cliente.Contraseña, @Email = cliente.Email}, 
             commandType: System.Data.CommandType.StoredProcedure);
         }
     }
-    public static Cliente VerificarCredenciales(string UserName, string Contraseña)
+    public static Cliente VerificarCredenciales(string Email, string Contraseña)
     {
             string sp = "sp_VerificarCredenciales";
             using (SqlConnection db = new SqlConnection(connectionString))
         {
-            Cliente usuario = db.QueryFirstOrDefault<Cliente>(sp, new { userName = UserName }, 
+            Cliente usuario = db.QueryFirstOrDefault<Cliente>(sp, new {@Email = Email}, 
             commandType: System.Data.CommandType.StoredProcedure);
 
             if (usuario != null && usuario.Contraseña == Contraseña)
@@ -110,6 +110,15 @@ public static class BD
             {
                 return null;
             }
+        }
+    }
+    public static Cliente ObtenerContraseñaPorEmail(string email)
+    {
+        string sp = "sp_VerificarCredenciales";
+        using (SqlConnection db = new SqlConnection(connectionString))
+        {
+            return db.QueryFirstOrDefault<Cliente>(sp, new {@Email = email},
+            commandType: System.Data.CommandType.StoredProcedure);
         }
     }
 }

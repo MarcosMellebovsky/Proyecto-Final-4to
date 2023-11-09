@@ -1,0 +1,42 @@
+﻿<body>
+    <main>
+        <div class="grilla">
+          <div class="imagen"></div>
+          <div class="padre">
+            <div class="formulario">
+              <div class="logo">
+                <img src="../img/logo-dennys.png" alt="" />
+              </div>
+              <form action='@Url.Action("IniciarSesion", "Dennys")' class="div-form">
+                <div class="label-input">
+                  <label for="nombre">Email*</label>
+                  <input type="text" placeholder="Email" name="Email" required />
+                </div>
+                <div class="label-input">
+                    <label for="nombre">Contraseña*</label>
+                    <input type="password" placeholder="Nueva contraseña" name="Contraseña" id="Contraseña" required />
+                </div>
+                <div>
+                  <div class="a-olvide">
+                        <a class="a-ya-tenes" href='@Url.Action("OlvideMiContraseña", "Dennys")'>Olvidaste tu contraseña?</a>
+                    </div>
+                </div>
+                    @if (ViewBag.Error != null)
+                    {
+                     <p class="error">@ViewBag.Error</p>
+                    }
+                <div class="padre-button">
+                <div class="div-boton">
+                  <button class="button" type="submit">
+                    Iniciar sesion</a>
+                  </button>
+                </div>
+              </div>
+                
+              </form>
+            </div>
+          </div>
+        </div>
+      </main>
+    
+</body>

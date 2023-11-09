@@ -6,6 +6,12 @@ namespace ProyectoFinal4To.Controllers;
 
 public class DennysController : Controller
 {
+     private readonly ILogger<DennysController> _logger;
+
+    public DennysController(ILogger<DennysController> logger)
+    {
+        _logger = logger;
+    }
       public IActionResult Login()
     {
         return View("Login");
@@ -16,24 +22,24 @@ public class DennysController : Controller
         ViewBag.IdUsuarioo = IdUsuario;
         return View("Registro");
     }
-    public IActionResult GuardarUsuario(Usuario us)
+    public IActionResult GuardarCliente(Cliente cliente)
     {
-        BD.Registro(us);
+        BD.Registro(cliente);
         return RedirectToAction("Login");
     }
-   public IActionResult IniciarSesion(string UserName, string Contraseña)
+   public IActionResult IniciarSesion(string Email, string Contraseña)
 {
-    Usuario usuario = BD.VerificarCredenciales(UserName, Contraseña);
+    Cliente cliente = BD.VerificarCredenciales(Email, Contraseña);
         
-    if (usuario != null)
+    if (cliente != null)
     {
-        ViewBag.InfoUsuario = usuario;
+        ViewBag.InfoCliente = cliente;
         
         return View("Bienvenida");
     }
     else
     {
-        ViewBag.Error = "Nombre de usuario o contraseña incorrectos.";
+        ViewBag.Error = "Email o contraseña incorrectos.";
         return View("Login");
     }
 }
@@ -44,17 +50,17 @@ public IActionResult OlvideMiContraseña()
 }
 
 [HttpPost]
-public IActionResult RecuperarContraseña(string UserName)
+public IActionResult RecuperarContraseña(string email)
 {
-    Usuario usuario = BD.ObtenerContraseñaPorUserName(UserName);
+    Cliente cliente = BD.ObtenerContraseñaPorEmail(email);
 
-    if (usuario != null)
+    if (cliente != null)
     {
-        ViewBag.ContraseñaRecuperada = usuario.Contraseña;
+        ViewBag.ContraseñaRecuperada = cliente.Contraseña;
     }
     else
     {
-        ViewBag.ErrorRecuperación = "Nombre de usuario no encontrado.";
+        ViewBag.ErrorRecuperación = "Email no encontrado.";
     }
 
     return View("RecuperarContraseña");
