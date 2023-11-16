@@ -18,5 +18,24 @@
         }
     }
 
-    
+    function mostrarDetallesRestaurante(IdRestaurante) {
+        $.ajax({
+            url: '/Dennys/ObtenerDetallesRestaurante',
+            data: { id: IdRestaurante },
+            type: 'GET',
+            success: function (response) {
+                $('#modalTitulo').text(response.Nombre);
+                $('#modalDescripcion').text(response.descripcion);
+                $('#modalDireccion').text(response.direccion);
+                $('#modalApertura').text(response.horarioApertura);
+                $('#modalClausura').text(response.horarioClausura);
+                $('#modalFechaFundacion').text(response.fechaFundacion);
+                $('#modalImagen').attr('src', response.imagen);
+            }
+        });
+    }
+
+    function cargarIdRestaurante(IdRestaurante){
+        $('#IdRestaurante').val(IdRestaurante)
+    }
     

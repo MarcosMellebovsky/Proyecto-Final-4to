@@ -7,14 +7,14 @@
               <div class="logo">
                 <img src="../img/logo-dennys.png" alt="" />
               </div>
-              <form action='@Url.Action("IniciarSesion", "Dennys")' class="div-form">
+              <form action='@Url.Action("IniciarSesion", "Dennys")' class="div-form"  method="post">
                 <div class="label-input">
                   <label for="nombre">Email*</label>
                   <input type="text" placeholder="Email" name="Email" required />
                 </div>
                 <div class="label-input">
                     <label for="nombre">Contraseña*</label>
-                    <input type="password" placeholder="Nueva contraseña" name="Contraseña" id="Contraseña" required />
+                    <input type="password" placeholder="Nueva contraseña" name="Contraseña" id="Contraseña"  required />
                 </div>
                 <div>
                   <div class="a-olvide">
@@ -38,5 +38,36 @@
           </div>
         </div>
       </main>
+
+      <footer class="pie-pagina">
+
+
+  <div class="grupo-1"> 
+    <div class="box">
+      <figure>
+        <a href="#">
+          <img src="./img/logo-dennys.png" alt="logo" >
+        </a>
+      </figure>
+    </div>
+    <div class="box">
+      <h2>SOBRE NOSOTROS</h2>
+      <p>Empresa líder en tecnología, venta y soporte informático en Argentina.</p>
+      <p>Tecnología y servicios informáticos de calidad en Argentina.</p>
+    </div>
+    <div class="box">
+      <h2>SIGUENOS</h2>
+      <div class="red-social">
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-instagram"></a>
+        <a href="#" class="fa fa-twitter"></a>
+        <a href="#" class="fa fa-whatsapp"></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="grupo-2">
+    <small>&copy; 2023 <b>Dennys </b>Todos los derechos reservados</small>
+  </div>
     
 </body>

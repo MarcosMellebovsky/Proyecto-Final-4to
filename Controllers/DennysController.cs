@@ -27,6 +27,12 @@ public class DennysController : Controller
         BD.Registro(cliente);
         return RedirectToAction("Login");
     }
+
+    public IActionResult GuardarReseña(Reseña reseña)
+    {
+         BD.AgregarReseña(reseña);
+        return View("confirmacionReseña");
+    }
    public IActionResult IniciarSesion(string Email, string Contraseña)
 {
     Cliente cliente = BD.VerificarCredenciales(Email, Contraseña);
@@ -34,7 +40,7 @@ public class DennysController : Controller
     if (cliente != null)
     {
         ViewBag.InfoCliente = cliente;
-        
+        ViewBag.ListaRestaurantes = BD.GetListaRestaurantes();
         return View("Bienvenida");
     }
     else
@@ -65,6 +71,11 @@ public IActionResult RecuperarContraseña(string email)
 
     return View("RecuperarContraseña");
 }
+ public Restaurante ObtenerDetallesRestaurante(int id)
+    {
+       Restaurante UnRestaurante = BD.GetInfoRestaurante(id);
+       return UnRestaurante;
+    }
 
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -73,3 +84,5 @@ public IActionResult RecuperarContraseña(string email)
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 }
+
+
