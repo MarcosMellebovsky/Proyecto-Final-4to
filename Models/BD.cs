@@ -2,7 +2,7 @@ using System.Data.SqlClient;
 using Dapper;
 public static class BD
 {
-    private static string connectionString = @"Server=localhost;DataBase=ReservaRestaurantes;Trusted_Connection=True;";
+    private static string connectionString = @"Server=DESKTOP-OF64MA2\SQLEXPRESS;DataBase=ReservaRestaurantes;Trusted_Connection=True;";
     public static void AgregarMenu(Menu men)
     {
         using(SqlConnection db = new SqlConnection(connectionString))
@@ -79,7 +79,7 @@ public static class BD
         using(SqlConnection db = new SqlConnection(connectionString))
         {
             string sp = "sp_Registro";
-            db.Execute(sp, new{@Nombre = cliente.Nombre, @Apellido = cliente.Apellido, @Contraseña = cliente.Contraseña, @Email = cliente.Email}, 
+            db.Execute(sp, new{@Nombre = cliente.Nombre, @Apellido = cliente.Apellido,  @Email = cliente.Email,@Contraseña = cliente.Contraseña}, 
             commandType: System.Data.CommandType.StoredProcedure);
         }
     }

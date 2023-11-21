@@ -11,16 +11,17 @@
                     <p>@item.Direccion</p>
                 </div>
                 <div class="btns">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalValorar" onclick="cargarIdRestaurante(@item.IdRestaurante)">
+                    <button type="button" class="bot1" data-bs-toggle="modal" data-bs-target="#ModalValorar" onclick="cargarIdRestaurante(@item.IdRestaurante)">
                     Valorar
                     </button>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalVerMas" onclick="mostrarDetallesRestaurante(@item.IdRestaurante)">
-                    Ver Mas
-                    </button>
-
                     <div class="btn3">
                         <button class="bot2">Reservar</button>
                     </div>
+                    <button type="button" class="bot1" data-bs-toggle="modal" data-bs-target="#ModalVerMas" onclick="mostrarDetallesRestaurante(@item.IdRestaurante)">
+                    Ver Mas
+                    </button>
+
+                    
                 </div>
             </div>
         }

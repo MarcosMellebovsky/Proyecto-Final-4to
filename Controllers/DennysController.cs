@@ -79,7 +79,16 @@ public Restaurante ObtenerDetallesRestaurante(int id)
 public Menu ObtenerDetallesMenu(int id)
     {
        Menu UnMenu = BD.GetInfoMenu(id);
-       return UnRestaurante;
+       return UnMenu;
+    }
+    public static void AgregarReserva(Reserva reserva)
+    {
+        using(SqlConnection db = new SqlConnection(connectionString))
+        {
+            string sp = "sp_AgregarReserva";
+            db.Execute(sp, new{@IdRestaurante = reserva.IdRestaurante, @IdCliente = reserva.IdCliente, @FechaReserva = reserva.FechaReserva, @Hora = reserva.HoraReserva, @Cantidad = reserva.CantidadPersonas}, 
+            commandType: System.Data.CommandType.StoredProcedure);
+        }
     }
 
 public IActionResult ObtenerReseñas(int idResto)
@@ -96,5 +105,7 @@ public IActionResult ObtenerReseñas(int idResto)
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 }
+
+
 
 
