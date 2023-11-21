@@ -71,11 +71,23 @@ public IActionResult RecuperarContraseña(string email)
 
     return View("RecuperarContraseña");
 }
- public Restaurante ObtenerDetallesRestaurante(int id)
+public Restaurante ObtenerDetallesRestaurante(int id)
     {
        Restaurante UnRestaurante = BD.GetInfoRestaurante(id);
        return UnRestaurante;
     }
+public Menu ObtenerDetallesMenu(int id)
+    {
+       Menu UnMenu = BD.GetInfoMenu(id);
+       return UnRestaurante;
+    }
+
+public IActionResult ObtenerReseñas(int idResto)
+{
+    ViewBag.Reseñas = BD.GetListaReseñasDeUnRestaurante(idResto);
+    return View("VerReseñas");
+}
+
 
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

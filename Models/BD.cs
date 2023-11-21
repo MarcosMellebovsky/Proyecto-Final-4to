@@ -63,17 +63,6 @@ public static class BD
         }
         return Menu;
     }
-    public static Reseña GetInfoReseña(int idRestaurante, int idCliente)
-    {
-        Reseña reseña = new Reseña();
-        using(SqlConnection db = new SqlConnection(connectionString))
-        {
-            string sp = "sp_GetInfoReseña";
-            reseña = db.QueryFirstOrDefault<Reseña>(sp,new{@IdRestaurante = idRestaurante, @IdCliente = idCliente}, 
-            commandType: System.Data.CommandType.StoredProcedure);
-        }
-        return reseña;
-    }
     public static List<Reseña> GetListaReseñasDeUnRestaurante(int idRestaurante)
     {
         List<Reseña> ListaReseñas = null;
@@ -118,6 +107,16 @@ public static class BD
         using (SqlConnection db = new SqlConnection(connectionString))
         {
             return db.QueryFirstOrDefault<Cliente>(sp, new {@Email = email},
+            commandType: System.Data.CommandType.StoredProcedure);
+        }
+    }
+
+    public static void AgregarReserva(Reserva reserva)
+    {
+        using(SqlConnection db = new SqlConnection(connectionString))
+        {
+            string sp = "sp_AgregarReserva";
+            db.Execute(sp, new{@IdRestaurante = reserva.IdRestaurante, @IdCliente = reserva.IdCliente, @FechaReserva = reserva.FechaReserva, @Hora = reserva.HoraReserva, @Cantidad = reserva.CantidadPersonas}, 
             commandType: System.Data.CommandType.StoredProcedure);
         }
     }
