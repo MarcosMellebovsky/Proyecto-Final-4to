@@ -41,6 +41,15 @@ public static class BD
         }
         return ListaRestaurantes;
     }
+      public static void AgregarReserva(Reserva reserva)
+    {
+        using(SqlConnection db = new SqlConnection(connectionString))
+        {
+            string sp = "sp_AgregarReserva";
+            db.Execute(sp, new{@IdRestaurante = reserva.IdRestaurante, @IdCliente = reserva.IdCliente, @FechaReserva = reserva.FechaReserva, @Hora = reserva.HoraReserva, @Cantidad = reserva.CantidadPersonas}, 
+            commandType: System.Data.CommandType.StoredProcedure);
+        }
+    }
     public static Restaurante GetInfoRestaurante(int idRestaurante)
     {
         Restaurante Restaurante = new Restaurante();
@@ -111,13 +120,5 @@ public static class BD
         }
     }
 
-    public static void AgregarReserva(Reserva reserva)
-    {
-        using(SqlConnection db = new SqlConnection(connectionString))
-        {
-            string sp = "sp_AgregarReserva";
-            db.Execute(sp, new{@IdRestaurante = reserva.IdRestaurante, @IdCliente = reserva.IdCliente, @FechaReserva = reserva.FechaReserva, @Hora = reserva.HoraReserva, @Cantidad = reserva.CantidadPersonas}, 
-            commandType: System.Data.CommandType.StoredProcedure);
-        }
-    }
+   
 }

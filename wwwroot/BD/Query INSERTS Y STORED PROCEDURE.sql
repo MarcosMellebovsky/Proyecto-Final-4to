@@ -113,3 +113,15 @@ BEGIN
 END
 
 
+CREATE PROCEDURE sp_AgregarReserva
+@IdRestaurante int, 
+@IdCliente int, 
+@FechaReserva date, 
+@Hora varchar(50), 
+@Cantidad int
+AS
+BEGIN
+	INSERT INTO Reserva(IdRestaurante, IdCliente, FechaReserva, HoraReserva, CantidadPersonas)
+	VALUES(@IdRestaurante, @IdCliente, @FechaReserva, @Hora, @Cantidad)
+END
+

@@ -464,6 +464,98 @@ header{
     color: #ffa723;
   }
   
-  
-  
-  
+  .modal {
+    text-align: center;
+}
+
+.modal-dialog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.modal-content {
+    width: 80%; /* Ancho del contenido del modal */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra del modal */
+    border-radius: 10px; /* Bordes redondeados del modal */
+}
+
+/* Estilos del encabezado del modal */
+.modal-header {
+    background-color: #007bff; /* Color de fondo del encabezado */
+    color: #fff; /* Color del texto del encabezado */
+    border-bottom: 2px solid #0056b3; /* Borde inferior del encabezado */
+    display: flex;
+    justify-content: center;
+}
+
+/* Estilos del cuerpo del modal */
+.modal-body {
+    padding: 20px; /* Espaciado interno del cuerpo */
+    display: flex;
+    flex-direction: column;
+    
+}
+
+/* Estilos del pie del modal */
+.modal-footer {
+    border-top: 2px solid #0056b3; /* Borde superior del pie */
+    display: flex;
+    justify-content: center;
+}
+
+/* Estilos para el textarea */
+.modal-body p {
+    margin-bottom: 20px; /* Espaciado debajo del textarea */
+}
+
+.modal-body textarea {
+    width: 100%;
+    height: 250px;
+    resize: vertical;
+}
+
+/* Estilos para las estrellas de rating */
+.rating {
+    margin-top: 20px;
+    font-size: 30px; /* Tamaño de las estrellas */
+    display: flex;
+    justify-content: center;
+}
+
+.modal-dialog {
+  max-width: 800px; /* Ancho máximo del modal */
+}
+
+.modal-content {
+  border-radius: 10px; /* Bordes redondeados del modal */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra del modal */
+}
+
+.modal-header {
+  background-color: #007bff; /* Color de fondo del encabezado */
+  color: #fff; /* Color del texto del encabezado */
+  border-bottom: 2px solid #0056b3; /* Borde inferior del encabezado */
+  border-radius: 10px 10px 0 0; /* Redondear solo la parte superior del encabezado */
+}
+
+.modal-body {
+  padding: 20px; /* Espaciado interno del cuerpo */
+}
+
+.modal-footer {
+  border-top: 2px solid #0056b3; /* Borde superior del pie */
+  border-radius: 0 0 10px 10px; /* Redondear solo la parte inferior del pie */
+}
+
+/* Estilos adicionales para mejorar la apariencia */
+#modalImagen {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px; /* Bordes redondeados para la imagen */
+}
+
+p strong {
+  font-weight: bold; /* Hacer el texto fuerte */
+}

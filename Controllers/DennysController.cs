@@ -30,7 +30,7 @@ public class DennysController : Controller
 
     public IActionResult GuardarReseña(Reseña reseña)
     {
-         BD.AgregarReseña(reseña);
+        BD.AgregarReseña(reseña);
         return View("confirmacionReseña");
     }
    public IActionResult IniciarSesion(string Email, string Contraseña)
@@ -81,21 +81,14 @@ public Menu ObtenerDetallesMenu(int id)
        Menu UnMenu = BD.GetInfoMenu(id);
        return UnMenu;
     }
-    public static void AgregarReserva(Reserva reserva)
-    {
-        using(SqlConnection db = new SqlConnection(connectionString))
-        {
-            string sp = "sp_AgregarReserva";
-            db.Execute(sp, new{@IdRestaurante = reserva.IdRestaurante, @IdCliente = reserva.IdCliente, @FechaReserva = reserva.FechaReserva, @Hora = reserva.HoraReserva, @Cantidad = reserva.CantidadPersonas}, 
-            commandType: System.Data.CommandType.StoredProcedure);
-        }
-    }
+  
 
 public IActionResult ObtenerReseñas(int idResto)
 {
     ViewBag.Reseñas = BD.GetListaReseñasDeUnRestaurante(idResto);
     return View("VerReseñas");
 }
+
 
 
 

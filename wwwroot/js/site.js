@@ -39,3 +39,94 @@
         $('#IdRestaurante').val(IdRestaurante)
     }
     
+    function alerta() {
+        Swal.fire({
+            title: "Reseña enviada",
+            text: "  Reseña enviada con exito!!",
+            //html:"",
+            icon: 'success',
+            confirmButtonText: 'Volver',
+            footer: '<span class="rojo"> Esta  informacion es importante!</span>',
+            //width: '90%',
+            // padding:
+            // background:
+            //grow: 'fullscreen'
+            // backdrop:
+            timer: 100000,
+            timerProgressBar: true,
+            // toast:
+            // position:
+            allowOutsideClick: false,
+            allowEscapeKey: true,
+            allowEnterKey: true,
+            stopKeydownPropagation: false,
+        
+            // input:
+            // inputPlaceholder:
+            // inputValue:
+            // inputOptions:
+            
+            //  customClass:
+            // 	container:
+            // 	popup:
+            // 	header:
+            // 	title:
+            // 	closeButton:
+            // 	icon:
+            // 	image:
+            // 	content:
+            // 	input:
+            // 	actions:
+            // 	confirmButton:
+            // 	cancelButton:
+            // 	footer:	
+        
+            // showConfirmButton:
+            // confirmButtonColor:
+            // confirmButtonAriaLabel:
+        
+            // showCancelButton:
+            // cancelButtonText:
+            // cancelButtonColor:
+            // cancelButtonAriaLabel:
+            
+            // buttonsStyling:
+            // showCloseButton:
+            // closeButtonAriaLabel:
+        
+        
+            // imageUrl:
+            // imageWidth:
+            // imageHeight:
+            // imageAlt:
+        });
+    }
+    
+  
+
+
+    function GuardarReserva() {
+        // Aquí puedes agregar lógica para guardar la fecha de reserva
+        const fechaReserva = document.getElementById('fechaReserva').value;
+        // Puedes realizar acciones adicionales aquí, por ejemplo, enviar la fecha al servidor
+        console.log('Fecha de reserva:', fechaReserva);
+    }
+
+    function Calendario() {
+        (async () => {
+            const { value: date } = await Swal.fire({
+              title: "Elegi una fecha para la reserva! ",
+              input: "date",
+              didOpen: () => {
+                const today = (new Date()).toISOString();
+                Swal.getInput().min = today.split("T")[0];
+              }
+            });
+            if (date) {
+              Swal.fire("Fecha de Reserva", date);
+            }
+          })()
+    }
+    
+
+    
