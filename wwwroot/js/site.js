@@ -127,6 +127,57 @@
             }
           })()
     }
-    
+   
 
-    
+    function SeleccionarCantidadPersonas() {
+        (async () => {
+          const { value: personas } = await Swal.fire({
+            title: "Seleccione la cantidad de personas para la reserva",
+            input: "select",
+            inputOptions: {
+              1: "1 persona",
+              2: "2 personas",
+              3: "3 personas",
+              4: "4 personas",
+              5: "5 personas",
+              6: "6 personas",
+              7: "7 personas",
+              8: "8 personas",
+            },
+            inputPlaceholder: "Seleccione la cantidad de personas",
+            showCancelButton: true,
+          });
+      
+          if (personas) {
+            Swal.fire(`Reserva para ${personas}`);
+          }
+        })();
+      }
+
+      function SeleccionarHorario() {
+        (async () => {
+          const { value: horario } = await Swal.fire({
+            title: "Seleccione el horario para la reserva",
+            input: "select",
+            inputOptions: {
+              "12:00 PM": "12:00 PM",
+              "1:00 PM": "1:00 PM",
+              "2:00 PM": "2:00 PM",
+              "6:00 PM": "6:00 PM",
+              "7:00 PM": "7:00 PM",
+              "8:00 PM": "8:00 PM",
+              "9:00 PM": "9:00 PM",
+              "10:00 PM": "10:00 PM",
+            },
+            inputPlaceholder: "Seleccione el horario",
+            showCancelButton: true,
+          });
+      
+          if (horario) {
+            Swal.fire(`Reserva para las ${horario}`);
+          }
+        })();
+      }
+
+
+   

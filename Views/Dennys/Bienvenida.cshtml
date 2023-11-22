@@ -38,15 +38,17 @@
         </div>
         <div class="modal-body">
           <form>
-            <div class="mb-3">
-              <label for="fechaReserva" class="form-label">Fecha de Reserva</label>
-            </div>
+          
             <button type="button" class="btn btn-primary" onclick="Calendario()">Seleccionar Fecha</button>
+            <button type="button" class="btn btn-primary" onclick=" SeleccionarCantidadPersonas()">Seleccionar Personas</button>
+            <button type="button" class="btn btn-primary" onclick=" SeleccionarHorario()">Seleccionar Horario</button>
+
+           
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="submit" class="btn btn-primary" onclick="GuardarReserva()">Guardar Reserva</button>
+          <button type="submit" class="btn btn-primary" onclick="alerta()">Guardar Reserva</button>
         </div>
       </div>
     </div>
