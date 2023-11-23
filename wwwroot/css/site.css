@@ -3,11 +3,14 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 /*HEADER*/
 header{
   box-shadow: 0 0 20px rgba(0, 0, 0,0.1);
   padding: 15px;
+ 
 }
+
 
 
 /*INDEX*/
@@ -660,6 +663,49 @@ p strong {
 .extrella{
   content: '★';
 }
-.img-reseña{
-  width: 1%;
+.main-reseñas {
+  text-align: center;
+}
+
+.padre-reseñas {
+  display: flex;
+  align-items: center;
+}
+
+.card-reseña {
+  background-color: #fff;
+  border-radius: 8px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  margin: 10px;
+}
+
+.dentro-reseñas {
+  padding: 20px; 
+}
+
+.img-reseña {
+  width: 20px; 
+  
+}
+a{
+  text-decoration: none;
+}
+
+.title-argegar{
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
+}
+.body-agregar{
+  background-color: rgb(204, 62, 37);
+
+}
+.img-agreghar{
+  width: 20%;
+}
+.sss{
+  width: 30%;
+}
+.contenedor-imga{
+  width: 20%;
 }

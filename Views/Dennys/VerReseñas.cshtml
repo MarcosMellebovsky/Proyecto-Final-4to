@@ -1,10 +1,17 @@
-@foreach (var item in ViewBag.ListaReseñas)
-{
-    <p>@item.Comentario</p> 
-
-    @for (int i=1; i<=item.Valoracion;i++)
-    {
-        <img class="img-reseña" src="/IMG/estrella.PNG">
-    }
-    
-}
+<main class="main-reseñas">
+    <div class="padre-reseñas">
+        @foreach (var item in ViewBag.ListaReseñas)
+        {
+            <div class="card-reseña">
+                <div class="dentro-reseñas">
+                    <p>@item.</p>
+                    <p>@item.Comentario</p>
+                    @for (int i = 1; i <= item.Valoracion; i++)
+                    {
+                        <img class="img-reseña" src="/IMG/estrella.PNG">
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</main>

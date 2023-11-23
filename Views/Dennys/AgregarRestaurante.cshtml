@@ -1,10 +1,120 @@
-<form action='@Url.Action("GuardarRestaurante","Dennys")' method="post">
-    <input type="text" name="Nombre" placeholder="Nombre" required> 
-    <input type="text" name="Direccion" placeholder="Direccion" required> 
-    <input type="text" name="HorarioApertura" placeholder="Horario de Apertura" required>
-    <input type="text" name="HorarioClausura" placeholder="Horario de Apertura" required>
-    <input type="date" name="FechaFundacion" placeholder="Fecha de Fundacion" required>
-    <input type="text" name="Imagen" placeholder="Imagen" required>
-    <input type="text" name="Descripcion" placeholder="Descripcion" required>
-    <button type="submit">Agregar Restaurante</button>
+
+    
+
+ <header>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href='@Url.Action("Bienvenida", "Dennys")'>Inicio</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link active" href='@Url.Action("Ayuda", "Dennys")'>Ayuda</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Funcionalidades
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Perfil</a></li>
+            <li><a class="dropdown-item" href="#">Agregar Restaurante</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Cerrar sesion</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active " aria-current="page">Contactanos</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+</header>
+
+<body class="body-agregar">
+<main > 
+    <div class="title-argegar">
+        <h1 class="ind-text">Agrega tu restaurante!</h1>
+    </div>
+    <div class="formulario">
+<form action='@Url.Action("GuardarRestaurante","Dennys")'class="div-form" method="post">
+    <div class="label-input">
+        <label for="nombre">Nombre*</label>
+        <input type="text" placeholder="Nombre" name="Nombre" required />
+    </div>
+    <div class="label-input">
+        <label for="HorarioApertura">Horario Apertura*</label>
+        <input type="text" name="HorarioApertura" placeholder="Horario de Apertura" required>
+    </div>
+    <div class="label-input">
+        <label for="HorarioClausura">Horario Clausura*</label>
+        <input type="text" name="HorarioClausura" placeholder="Horario de Clausura" required>
+    </div>
+    <div class="label-input">
+        <label for="FechaFundacion">Fecha Fundacion*</label>
+        <input type="date" name="FechaFundacion" placeholder="Fecha de Fundacion" required>
+    </div>
+
+    <div class="label-input">
+        <label for="Imagen">Imagen*</label>
+        <input type="text" name="Imagen" placeholder="Imagen" required>
+    </div>
+    <div class="label-input">
+        <label for="Descripcion">Descripcion*</label>
+        <input type="text" name="Descripcion" placeholder="Descripcion" required>
+    </div>
+            <div class="padre-button">
+              <div class="div-boton">
+                <button class="button" type="submit">Agregar Restaurante</button>
+                </div>
+                </div>
+    
 </form>
+
+</div>
+
+</main>
+
+<footer class="pie-pagina">
+
+
+  <div class="grupo-1"> 
+    <div class="box">
+      <figure>
+        <a href="#">
+          <img src="../img/logo-dennys.png"  >
+        </a>
+      </figure>
+    </div>
+    <div class="box">
+      <h2>SOBRE NOSOTROS</h2>
+      <p>Empresa líder en tecnología, venta y soporte informático en Argentina.</p>
+      <p>Tecnología y servicios informáticos de calidad en Argentina.</p>
+    </div>
+    <div class="box">
+      <h2>SIGUENOS</h2>
+      <div class="red-social">
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-instagram"></a>
+        <a href="#" class="fa fa-twitter"></a>
+        <a href="#" class="fa fa-whatsapp"></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="grupo-2">
+    <small>&copy; 2023 <b>Dennys </b>Todos los derechos reservados</small>
+  </div>
+
+</footer>
+
+</body>
