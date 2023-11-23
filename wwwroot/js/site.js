@@ -39,10 +39,10 @@
         $('#IdRestaurante').val(IdRestaurante)
     }
     
-    function alerta() {
+    function alertaReserva() {
         Swal.fire({
-            title: "Reseña enviada",
-            text: "  Reseña enviada con exito!!",
+            title: "Reserva enviada",
+            text: "  Reserva enviada con exito!!",
             //html:"",
             icon: 'success',
             confirmButtonText: 'Volver',
@@ -101,6 +101,69 @@
             // imageAlt:
         });
     }
+    function alertaReseña() {
+      Swal.fire({
+          title: "Reseña enviada",
+          text: "  Reseña enviada con exito!!",
+          //html:"",
+          icon: 'success',
+          confirmButtonText: 'Volver',
+          footer: '<span class="rojo"> Esta  informacion es importante!</span>',
+          //width: '90%',
+          // padding:
+          // background:
+          //grow: 'fullscreen'
+          // backdrop:
+          timer: 100000,
+          timerProgressBar: true,
+          // toast:
+          // position:
+          allowOutsideClick: false,
+          allowEscapeKey: true,
+          allowEnterKey: true,
+          stopKeydownPropagation: false,
+      
+          // input:
+          // inputPlaceholder:
+          // inputValue:
+          // inputOptions:
+          
+          //  customClass:
+          // 	container:
+          // 	popup:
+          // 	header:
+          // 	title:
+          // 	closeButton:
+          // 	icon:
+          // 	image:
+          // 	content:
+          // 	input:
+          // 	actions:
+          // 	confirmButton:
+          // 	cancelButton:
+          // 	footer:	
+      
+          // showConfirmButton:
+          // confirmButtonColor:
+          // confirmButtonAriaLabel:
+      
+          // showCancelButton:
+          // cancelButtonText:
+          // cancelButtonColor:
+          // cancelButtonAriaLabel:
+          
+          // buttonsStyling:
+          // showCloseButton:
+          // closeButtonAriaLabel:
+      
+      
+          // imageUrl:
+          // imageWidth:
+          // imageHeight:
+          // imageAlt:
+      });
+  }
+  
     
     function GuardarReseña(IDCliente) {
       let IdRes = $('#IdRestaurante').val();
@@ -116,7 +179,7 @@
             success:
                 function (response) 
                 {
-
+                  alertaReseña();
                 }
         });
     }
@@ -212,4 +275,19 @@
         })();
       }
 
+
+      function validarLongitud(elemento) {
+        var maxCaracteres = 500;
+        var longitudActual = elemento.value.length;
+        var caracteresRestantes = maxCaracteres - longitudActual;
+  
+        var contador = document.getElementById('contador');
+        contador.textContent = caracteresRestantes + '/500';
+  
+        if (caracteresRestantes < 0) {
+          contador.classList.add('excedido');
+        } else {
+          contador.classList.remove('excedido');
+        }
+      }
 

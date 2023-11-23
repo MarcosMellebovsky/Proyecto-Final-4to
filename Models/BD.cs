@@ -74,7 +74,7 @@ public static class BD
     }
     public static List<Reseña> GetListaReseñasDeUnRestaurante(int idRestaurante)
     {
-        List<Reseña> ListaReseñas = null;
+        List<Reseña> ListaReseñas = new List<Reseña>();
         using(SqlConnection db = new SqlConnection(connectionString))
         {
             string sp = "sp_GetListaReseñasDeUnRestaurante";
@@ -120,5 +120,14 @@ public static class BD
         }
     }
 
+     public static void EliminarRestaurante(int IdRestaurante)
+    {
+        using(SqlConnection db = new SqlConnection(connectionString))
+        {
+            string sp = "sp_EliminarRestaurante";
+            db.Execute(sp, new{@IdRestaurante = IdRestaurante}, 
+            commandType: System.Data.CommandType.StoredProcedure);
+        }
+    }
    
 }

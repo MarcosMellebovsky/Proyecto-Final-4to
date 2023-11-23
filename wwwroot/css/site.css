@@ -8,23 +8,6 @@ header{
   box-shadow: 0 0 20px rgba(0, 0, 0,0.1);
   padding: 15px;
 }
-.img-logo{
-  width: 10%;
-}
-.img-logo img{
-  width: 60%;
-}
-.nav-item{
-  font-size: 20px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-.navbar-nav{
-  justify-content: end !important;
-}
-.navegador{
-  display: flex;
-  justify-content: flex-end;
-}
 
 
 /*INDEX*/
@@ -597,4 +580,86 @@ p strong {
 .label-recu{
   color:black;
   font-weight: bold;
+}
+
+
+.title-ayuda{
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  
+}
+.title-servicio{
+  margin-bottom: 10px;
+}
+.ayuda-padre{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  box-shadow: 0 0 20px rgba(0, 0, 0,0.1);
+  margin: 15px;
+}
+.accordion{
+  width: 100%;
+}
+.contenedor-ayuda{
+  padding: 50px;  
+  
+}
+.servicio-padre{
+  margin-top: 20px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0,0.1);
+  display: flex;
+  justify-content: center;
+  margin: 15px;
+}
+.servicio-detalles{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+.boton-servicio{
+  
+  text-decoration: none;
+  color: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0,0.2);
+  background-color: black;
+  padding: 10px;
+  border-radius: 10px;
+  transition: 1s;
+}
+.boton-servicio:hover{
+  background-color: rgb(168, 164, 164);
+  color: rgb(34, 34, 34);
+}
+.consulta-padre{
+  margin-top: 20px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0,0.1);
+  display: flex;
+  margin: 15px;
+}
+.contenedor-consulta{
+  padding: 50px;   
+}
+#contador {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  color: black;
+}
+#contador.excedido {
+  color: red;
+}
+#cuadroTexto {
+  position: relative;
+}
+
+.extrella{
+  content: '★';
+}
+.img-reseña{
+  width: 1%;
 }

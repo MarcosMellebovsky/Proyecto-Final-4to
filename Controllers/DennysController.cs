@@ -16,6 +16,14 @@ public class DennysController : Controller
     {
         return View("Login");
     }
+      public IActionResult Ayuda()
+    {
+        return View("Ayuda");
+    }
+    public IActionResult Bienvenida()
+    {
+        return View("Bienvenida");
+    }
 
     public IActionResult Registrarte(int IdUsuario)
     {
@@ -23,9 +31,10 @@ public class DennysController : Controller
         return View("Registro");
     }
 
-    public void GuardarReseñaAjax(int IdCliente, int IdRestaurante, string Comentario, int Valoracion)
+    public bool GuardarReseñaAjax(int IdCliente, int IdRestaurante, string Comentario, int Valoracion)
     {
         BD.AgregarReseña(IdCliente, IdRestaurante, Comentario, Valoracion);
+        return true;
     }
     
     public void GuardarReservaAjax(int IdCliente, int IdRestaurante, DateTime fechaReserva, int personasReserva, string horarioReserva)
@@ -85,9 +94,28 @@ public Menu ObtenerDetallesMenu(int id)
 
 public IActionResult ObtenerReseñas(int idResto)
 {
-    ViewBag.Reseñas = BD.GetListaReseñasDeUnRestaurante(idResto);
+    ViewBag.ListaReseñas = BD.GetListaReseñasDeUnRestaurante(idResto);
     return View("VerReseñas");
 }
+
+public IActionResult AgregarRestaurante()
+{
+    return View("AgregarRestaurante");
+}
+
+public IActionResult GuardarRestaurante(Restaurante resto)
+{
+    BD.AgregarRestaurante(resto);
+    return View("Bienvenida");
+}
+public IActionResult EliminarRestaurante(int idResto)
+{
+    BD.EliminarRestaurante(idResto);
+    return View("Bienvenida");
+}
+
+
+
 
 
 

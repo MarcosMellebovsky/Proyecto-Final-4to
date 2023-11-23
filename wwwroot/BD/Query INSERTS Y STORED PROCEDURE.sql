@@ -125,3 +125,10 @@ BEGIN
 	VALUES(@IdRestaurante, @IdCliente, @FechaReserva, @Hora, @Cantidad)
 END
 
+CREATE PROCEDURE sp_EliminarRestaurante
+@IdRestaurante int 
+AS
+BEGIN
+	DELETE FROM Restaurante WHERE IdRestaurante = @IdRestaurante
+END
+

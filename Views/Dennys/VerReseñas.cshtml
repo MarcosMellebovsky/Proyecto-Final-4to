@@ -1,0 +1,10 @@
+@foreach (var item in ViewBag.ListaReseñas)
+{
+    <p>@item.Comentario</p> 
+
+    @for (int i=1; i<=item.Valoracion;i++)
+    {
+        <img class="img-reseña" src="/IMG/estrella.PNG">
+    }
+    
+}
