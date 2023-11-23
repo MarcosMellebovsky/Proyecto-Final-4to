@@ -22,17 +22,17 @@ public class DennysController : Controller
         ViewBag.IdUsuarioo = IdUsuario;
         return View("Registro");
     }
-    public IActionResult GuardarCliente(Cliente cliente)
+
+    public void GuardarReseñaAjax(int IdCliente, int IdRestaurante, string Comentario, int Valoracion)
     {
-        BD.Registro(cliente);
-        return RedirectToAction("Login");
+        BD.AgregarReseña(IdCliente, IdRestaurante, Comentario, Valoracion);
+    }
+    
+    public void GuardarReservaAjax(int IdCliente, int IdRestaurante, DateTime fechaReserva, int personasReserva, string horarioReserva)
+    {
+        BD.AgregarReserva(IdRestaurante, IdCliente, fechaReserva, horarioReserva, personasReserva);
     }
 
-    public IActionResult GuardarReseña(Reseña reseña)
-    {
-        BD.AgregarReseña(reseña);
-        return View("confirmacionReseña");
-    }
    public IActionResult IniciarSesion(string Email, string Contraseña)
 {
     Cliente cliente = BD.VerificarCredenciales(Email, Contraseña);

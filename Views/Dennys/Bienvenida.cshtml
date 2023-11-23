@@ -40,15 +40,15 @@
           <form>
           
             <button type="button" class="btn btn-primary" onclick="Calendario()">Seleccionar Fecha</button>
-            <button type="button" class="btn btn-primary" onclick=" SeleccionarCantidadPersonas()">Seleccionar Personas</button>
-            <button type="button" class="btn btn-primary" onclick=" SeleccionarHorario()">Seleccionar Horario</button>
+            <button type="button" class="btn btn-primary" onclick="SeleccionarCantidadPersonas()">Seleccionar Personas</button>
+            <button type="button" class="btn btn-primary" onclick="SeleccionarHorario()">Seleccionar Horario</button>
 
            
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="submit" class="btn btn-primary" onclick="alerta()">Guardar Reserva</button>
+          <button class="btn btn-primary" onclick="alerta(), GuardarReserva(@ViewBag.InfoCliente.IdCliente)">Guardar Reserva</button>
         </div>
       </div>
     </div>
@@ -59,41 +59,38 @@
  
 
   <div class="modal" tabindex="-1" id="ModalValorar" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg"> <!-- Utiliza la clase modal-lg para un tamaño grande -->
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <div class="centrar-titlulo">
                     <h5 class="modal-title">@ViewBag.InfoCliente.Nombre</h5>
                 </div>
             </div>
-            <form action='@Url.Action("GuardarReseña", "Dennys")' method="post">
+            <form method="post">
                 <div class="modal-body">
-                      <input type="hidden" name="idCliente" value="@ViewBag.InfoCliente.IdCliente">
-                        <input type="hidden" name="idRestaurante" id="IdRestaurante">
+                    <input type="hidden" name="idCliente" value="@ViewBag.InfoCliente.IdCliente">
+                    <input type="hidden" name="idRestaurante" id="IdRestaurante">
             
-            <p><textarea name="Comentario" placeholder="Comparte tu opinión!"></textarea></p>
-    <div class="contenedor-esterllas">
-            <div class="rating">
-             
+                    <p><textarea name="Comentario" placeholder="Comparte tu opinión!" id="comentario"></textarea></p>
 
-                <input value="5" name="Valoracion" id="star5" type="radio">
-  <label title="text" for="star5"></label>
-  <input value="4" name="Valoracion" id="star4" type="radio">
-  <label title="text" for="star4"></label>
-  <input value="3" name="Valoracion" id="star3" type="radio" checked="">
-  <label title="text" for="star3"></label>
-  <input value="2" name="Valoracion" id="star2" type="radio">
-  <label title="text" for="star2"></label>
-  <input value="1" name="Valoracion" id="star1" type="radio">
-  <label title="text" for="star1"></label>
-            
-                  </div>
-                    
-                </div>
+                    <div class="contenedor-esterllas">
+                        <div class="rating">
+                            <input value="5" name="Valoracion" id="star5" type="radio">
+                            <label title="text" for="star5"></label>
+                            <input value="4" name="Valoracion" id="star4" type="radio">
+                            <label title="text" for="star4"></label>
+                            <input value="3" name="Valoracion" id="star3" type="radio" checked="">
+                            <label title="text" for="star3"></label>
+                            <input value="2" name="Valoracion" id="star2" type="radio">
+                            <label title="text" for="star2"></label>
+                            <input value="1" name="Valoracion" id="star1" type="radio">
+                            <label title="text" for="star1"></label>
+                        </div>     
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Salir</button>
-                    <button type="submit" class="btn btn-primary">Publicar</button>
+                    <button class="btn btn-primary" onclick="alerta(), GuardarReseña(@ViewBag.InfoCliente.IdCliente)">Publicar</button>
                 </div>
             </form>
         </div>

@@ -22,12 +22,12 @@ public static class BD
             commandType: System.Data.CommandType.StoredProcedure);
         }
     }
-    public static void AgregarReseña(Reseña reseña)
+    public static void AgregarReseña(int IdCliente, int IdRestaurante, string Comentario, int Valoracion)
     {
         using(SqlConnection db = new SqlConnection(connectionString))
         {
             string sp = "sp_AgregarReseña";
-            db.Execute(sp, new{@IdResto = reseña.IdRestaurante, @IdClient = reseña.IdCliente, @Comment = reseña.Comentario, @Valoracion = reseña.Valoracion}, 
+            db.Execute(sp, new{@IdResto = IdRestaurante, @IdClient = IdCliente, @Comment = Comentario, @Valoracion = Valoracion}, 
             commandType: System.Data.CommandType.StoredProcedure);
         }
     }
@@ -41,12 +41,12 @@ public static class BD
         }
         return ListaRestaurantes;
     }
-      public static void AgregarReserva(Reserva reserva)
+      public static void AgregarReserva(int IdRestaurante, int IdCliente, DateTime FechaReserva, string HoraReserva, int CantidadPersonas)
     {
         using(SqlConnection db = new SqlConnection(connectionString))
         {
             string sp = "sp_AgregarReserva";
-            db.Execute(sp, new{@IdRestaurante = reserva.IdRestaurante, @IdCliente = reserva.IdCliente, @FechaReserva = reserva.FechaReserva, @Hora = reserva.HoraReserva, @Cantidad = reserva.CantidadPersonas}, 
+            db.Execute(sp, new{@IdRestaurante = IdRestaurante, @IdCliente = IdCliente, @FechaReserva = FechaReserva, @Hora = HoraReserva, @Cantidad = CantidadPersonas}, 
             commandType: System.Data.CommandType.StoredProcedure);
         }
     }

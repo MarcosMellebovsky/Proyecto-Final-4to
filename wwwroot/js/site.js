@@ -102,14 +102,44 @@
         });
     }
     
-  
+    function GuardarReseña(IDCliente) {
+      let IdRes = $('#IdRestaurante').val();
+      let comentario = $('#comentario').val();
+      let valoracion = $("input[type=radio][name=Valoracion]:checked").val();
+
+      $.ajax(
+        {
+            type: 'POST',
+            dataType: 'JSON',
+            url: '/Dennys/GuardarReseñaAjax',
+            data: { IdCliente: IDCliente, IdRestaurante: IdRes, Comentario: comentario, Valoracion: valoracion},
+            success:
+                function (response) 
+                {
+
+                }
+        });
+    }
 
 
-    function GuardarReserva() {
-        // Aquí puedes agregar lógica para guardar la fecha de reserva
-        const fechaReserva = document.getElementById('fechaReserva').value;
-        // Puedes realizar acciones adicionales aquí, por ejemplo, enviar la fecha al servidor
-        console.log('Fecha de reserva:', fechaReserva);
+    function GuardarReserva(IDCliente) {
+      let IdRes = $('#IdRestaurante').val();
+      const fecha = localStorage.getItem("fecha-reserva"),
+        personas = localStorage.getItem("personas-reserva"),
+        horario = localStorage.getItem("horario-reserva");
+
+      $.ajax(
+        {
+            type: 'POST',
+            dataType: 'JSON',
+            url: '/Dennys/GuardarReservaAjax',
+            data: { IdCliente: IDCliente, IdRestaurante: IdRes, fechaReserva: fecha, personasReserva: personas, horarioReserva: horario},
+            success:
+                function (response) 
+                {
+
+                }
+        });
     }
 
     function Calendario() {
@@ -125,6 +155,7 @@
             if (date) {
               Swal.fire("Fecha de Reserva", date);
             }
+            localStorage.setItem("fecha-reserva", date);
           })()
 }
    
@@ -151,6 +182,7 @@
           if (personas) {
             Swal.fire(`Reserva para ${personas}`);
           }
+          localStorage.setItem("personas-reserva", personas);
         })();
       }
 
@@ -176,8 +208,8 @@
           if (horario) {
             Swal.fire(`Reserva para las ${horario}`);
           }
+          localStorage.setItem("horario-reserva", horario);
         })();
       }
 
 
-   
