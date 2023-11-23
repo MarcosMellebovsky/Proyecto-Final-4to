@@ -126,7 +126,7 @@
               Swal.fire("Fecha de Reserva", date);
             }
           })()
-    }
+}
    
 
     function SeleccionarCantidadPersonas() {

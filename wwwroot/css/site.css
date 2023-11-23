@@ -77,6 +77,15 @@ header{
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   
 }
+.padre-recu{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 10px;
+  padding: 40px;
+  gap: 7px; 
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
 .div-form label{
   margin: .2rem;
   font-family: 'Overpass', sans-serif;
@@ -98,6 +107,22 @@ header{
 .padre-button{
   display: flex;
   justify-content: center;
+}
+.padre-button-recu{
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+}
+.h2-recu{
+  display: flex;
+  justify-content: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-top: 5rem;
+}
+.p-recu{
+  display: flex;
+  justify-content: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .div-boton{
@@ -167,6 +192,9 @@ header{
  .a-ya-tenes{
   color: #ffcb3d;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.a-ya-tenes:hover{
+  color: #ffd664;
 }
 /*index*/
 .ind-text{
@@ -520,7 +548,10 @@ header{
 .rating {
     margin-top: 20px;
     font-size: 30px; /* Tamaño de las estrellas */
-    display: flex;
+    
+}
+.contenedor-esterllas{
+  display: flex;
     justify-content: center;
 }
 
@@ -558,4 +589,12 @@ header{
 
 p strong {
   font-weight: bold; /* Hacer el texto fuerte */
+}
+.recu-div{
+  display: flex;
+  flex-direction: column;
+}
+.label-recu{
+  color:black;
+  font-weight: bold;
 }

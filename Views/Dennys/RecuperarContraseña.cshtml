@@ -1,0 +1,86 @@
+
+
+<div class="grilla">
+          <div class="imagen"></div>
+          <div class="padre">
+            <div class="formulario">
+              <div class="logo">
+                <img src="../img/logo-dennys.png" alt="" />
+              </div>
+              
+                
+
+                @if (ViewBag.ContraseñaRecuperada != null)
+                {
+                    <h2 class="h2-recu">Contraseña Recuprerada!!</h2>
+                    <div class="padre-recu">
+                    
+                    <p class="p-recu">Tu contraseña es: <strong> @ViewBag.ContraseñaRecuperada </strong> </p>
+                    <div class="padre-button-recu">
+                                    <div class="div-boton">
+                                    <button class="button" type="submit">
+                                        Inicia Sesion
+                                    </button>
+                                    </div>
+                                    </div>
+                                    </div>
+                }
+                else
+                {
+                    <h2 class="h2-recu">Recuperar Contraseña</h2>
+                    <form action='@Url.Action("RecuperarContraseña", "Dennys")' method="post" class="div-form">
+                        <div class="recu-div">
+                        <label class="label-recu" for="Email">Email*</label>
+                        <input type="text" name="Email" placeholder="ingrese su email" required>
+                        </div>
+                                    <div class="padre-button-recu">
+                                    <div class="div-boton">
+                                    <button class="button" type="submit">
+                                        Recuperar contraseña
+                                    </button>
+                                    </div>
+                                    </div>
+
+                        @if (ViewBag.ErrorRecuperación != null)
+                        {
+                            <p class="error">@ViewBag.ErrorRecuperación</p>
+                        }
+
+                    </form>
+                }
+
+
+            </div>
+          </div>
+        </div>
+
+<footer class="pie-pagina">
+
+
+  <div class="grupo-1"> 
+    <div class="box">
+      <figure>
+        <a href="#">
+          <img src="../img/logo-dennys.png" alt="logo" >
+        </a>
+      </figure>
+    </div>
+    <div class="box">
+      <h2>SOBRE NOSOTROS</h2>
+      <p>Empresa líder en tecnología, venta y soporte informático en Argentina.</p>
+      <p>Tecnología y servicios informáticos de calidad en Argentina.</p>
+    </div>
+    <div class="box">
+      <h2>SIGUENOS</h2>
+      <div class="red-social">
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-instagram"></a>
+        <a href="#" class="fa fa-twitter"></a>
+        <a href="#" class="fa fa-whatsapp"></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="grupo-2">
+    <small>&copy; 2023 <b>Dennys </b>Todos los derechos reservados</small>
+  </div>

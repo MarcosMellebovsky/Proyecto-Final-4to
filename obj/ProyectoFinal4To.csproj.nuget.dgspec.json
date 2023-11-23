@@ -1,26 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\MARCOS\\OneDrive\\Documentos\\Proyecto-Final-4to\\ProyectoFinal4To.csproj": {}
+    "Z:\\2023\\Programacion\\Proyecto-Final-4to\\ProyectoFinal4To.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MARCOS\\OneDrive\\Documentos\\Proyecto-Final-4to\\ProyectoFinal4To.csproj": {
+    "Z:\\2023\\Programacion\\Proyecto-Final-4to\\ProyectoFinal4To.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MARCOS\\OneDrive\\Documentos\\Proyecto-Final-4to\\ProyectoFinal4To.csproj",
+        "projectUniqueName": "Z:\\2023\\Programacion\\Proyecto-Final-4to\\ProyectoFinal4To.csproj",
         "projectName": "ProyectoFinal4To",
-        "projectPath": "C:\\Users\\MARCOS\\OneDrive\\Documentos\\Proyecto-Final-4to\\ProyectoFinal4To.csproj",
-        "packagesPath": "C:\\Users\\MARCOS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MARCOS\\OneDrive\\Documentos\\Proyecto-Final-4to\\obj\\",
+        "projectPath": "Z:\\2023\\Programacion\\Proyecto-Final-4to\\ProyectoFinal4To.csproj",
+        "packagesPath": "C:\\Users\\47963426\\.nuget\\packages\\",
+        "outputPath": "Z:\\2023\\Programacion\\Proyecto-Final-4to\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\MARCOS\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\47963426\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -41,7 +46,7 @@
           "dependencies": {
             "Dapper": {
               "target": "Package",
-              "version": "[2.1.21, )"
+              "version": "[2.1.24, )"
             },
             "System.Data.SqlClient": {
               "target": "Package",
@@ -67,7 +72,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }
