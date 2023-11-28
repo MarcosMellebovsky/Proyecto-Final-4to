@@ -83,6 +83,9 @@ header{
   justify-content: center;
   
 }
+.in-ddd{
+  padding: .5rem;
+}
 
 .div-form input{
   padding: .4rem;
@@ -109,6 +112,20 @@ header{
   display: flex;
   justify-content: center;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.botonn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 18px;
+  text-decoration: none;
+  color: white;
+  background-color: #333;
+  border-radius: 4px;
+}
+
+.botonn:hover {
+  background-color: #555;  
+  color: white;
 }
 
 .div-boton{
@@ -147,6 +164,7 @@ header{
   will-change: box-shadow, transform;
   font-size: 20px;
 }
+
 .button a {
   color: black;
   text-decoration: none;
@@ -666,10 +684,27 @@ p strong {
 .main-reseñas {
   text-align: center;
 }
-
+.padre-reservas{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr ;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 40px;
+  margin-top: 2rem;
+  padding: 1rem;
+}
+.dentro-reserva{
+  padding: 20px; 
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
 .padre-reseñas {
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr ;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 40px;
+  margin-top: 2rem;
+  padding: 1rem;
 }
 
 .card-reseña {
@@ -708,4 +743,122 @@ a{
 }
 .contenedor-imga{
   width: 20%;
+}
+
+/*aaaa*/
+
+.aaa{
+  background-color: black;
+  border: none;
+}
+.contactoo-padre{
+  display: flex;
+  flex-direction: column;
+}
+.titlee-contacto{
+  display: flex;
+  justify-content: center;  
+  margin-top: 50px;  
+}
+.mapaa-contacto{
+  display: flex;
+  justify-content: center;
+}
+.contenedorr-contacto{
+  display: flex;
+  gap: 50px;
+  box-shadow: 0 0 20px rgba(0, 0, 0,0.2);
+  margin: 10px;
+  width: 70%;
+}
+.parrafoo-contacto{
+  margin: 35px;
+  width: 50%;
+  
+}
+.parrafoo-contacto p{
+  text-align: start;
+}
+.div-mapaa{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  margin: 30px;
+  width: 50%;
+}
+
+.Contactanosss{
+  display: flex;
+  justify-content: center;  
+  margin-top: 50px;  
+}
+.formularioo-contacto{
+  display: flex;
+  justify-content: center;
+}
+.formularioo h2{
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.formularioo{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 10px;
+  padding: 30px;
+  gap: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0,0.2);
+  margin-bottom: 40px;
+  width: 70%;
+}
+.formularioo label{
+  font-weight: bold;
+}
+
+.submitt-enviar{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.enviarr{
+  background-color: black;
+  border: black;
+  border-radius: 10px;
+  padding: 7px;
+  color: white;
+  margin-top: 10px;
+  padding-inline: 20px;
+  transition: 1s;
+}
+.enviarr:hover{
+  color: black;
+  background-color: gray;
+}
+@media screen and (max-width:1410px){
+  .contenedorr-contacto{
+      flex-direction: column;
+  }
+  .parrafoo-contacto p{
+      text-align: center; 
+  }
+  .divv-mapa{
+     
+      width: 95%;
+      
+  }  
+  .mapaa{
+      padding-right: 10px;
+      padding-bottom: 60px;
+  }
+  .parrafoo-contacto{
+      padding-top: 50px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      width: 90%;
+  }
+  
 }

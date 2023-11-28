@@ -1,15 +1,84 @@
+<header>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link"  href='@Url.Action("Bienvenida", "Dennys")'>Inicio</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href='@Url.Action("Ayuda", "Dennys")'>Ayuda</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Funcionalidades
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href= '@Url.Action("ObtenerReservas", "Dennys", new {idCliente = @BD.user.IdCliente})'>Tu Reserva</a></li>
+            <li><a class="dropdown-item" href='@Url.Action("AgregarRestaurante", "Dennys")'>Agregar Restaurante</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href='@Url.Action("Index", "Home")'>Cerrar sesion</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href='@Url.Action("Contactanos", "Dennys")' >Contactanos</a>
+        </li>
+      </ul>
+      
+    </div>
+  </div>
+</nav>
+</header>
+
 <main class="main-reseñas">
-    <div class="padre-reseñas">
+    <div class="padre-reservas">
         @foreach (var item in ViewBag.ListaReservas)
         {
             <div class="card-reseña">
-                <div class="dentro-reseñas">
-                    <p>@item.NombreRestaurante</p>
-                    <p>@item.FechaReserva</p>
-                    <p>@item.HoraReserva</p>
-                    <p>@item.CantidadPersonas</p>
+                <div class="dentro-reserva">
+                    <p>Lugar: @item.NombreRestaurante</p>
+                    <p>Fecha: @item.FechaReserva</p>
+                    <p>Hora: @item.HoraReserva</p>
+                    <p>Cantidad de Personas: @item.CantidadPersonas</p>
                 </div>
             </div>
         }
     </div>
 </main>
+
+ <footer class="pie-pagina">
+
+
+  <div class="grupo-1"> 
+    <div class="box">
+      <figure>
+        <a href="#">
+          <img src="../img/logo-dennys.png"  >
+        </a>
+      </figure>
+    </div>
+    <div class="box">
+      <h2>SOBRE NOSOTROS</h2>
+      <p>Empresa líder en tecnología, venta y soporte informático en Argentina.</p>
+      <p>Tecnología y servicios informáticos de calidad en Argentina.</p>
+    </div>
+    <div class="box">
+      <h2>SIGUENOS</h2>
+      <div class="red-social">
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-instagram"></a>
+        <a href="#" class="fa fa-twitter"></a>
+        <a href="#" class="fa fa-whatsapp"></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="grupo-2">
+    <small>&copy; 2023 <b>Dennys </b>Todos los derechos reservados</small>
+  </div>
+
+
+</footer>

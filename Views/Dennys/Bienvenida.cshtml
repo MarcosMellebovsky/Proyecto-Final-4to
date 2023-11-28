@@ -20,11 +20,11 @@
             <li><a class="dropdown-item" href= '@Url.Action("ObtenerReservas", "Dennys", new {idCliente = @BD.user.IdCliente})'>Tu Reserva</a></li>
             <li><a class="dropdown-item" href='@Url.Action("AgregarRestaurante", "Dennys")'>Agregar Restaurante</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Cerrar sesion</a></li>
+            <li><a class="dropdown-item" href='@Url.Action("Index", "Home")'>Cerrar sesion</a></li>
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link " aria-disabled="true">Contactanos</a>
+          <a class="nav-link" href='@Url.Action("Contactanos", "Dennys")' >Contactanos</a>
         </li>
       </ul>
       
@@ -128,7 +128,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Salir</button>
-                    <button class="btn btn-primary" data-bs-dismiss="modal" onclick="GuardarReseña(@BD.user.IdCliente)">Publicar</button>
+                    <button class="btn btn-primary" data-bs-dismiss="modal" onclick=" alertaReseña() , GuardarReseña(@BD.user.IdCliente)">Publicar</button>
                 </div>
             
         </div>
