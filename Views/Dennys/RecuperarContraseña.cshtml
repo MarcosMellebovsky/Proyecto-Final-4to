@@ -18,8 +18,8 @@
                     <p class="p-recu">Tu contraseña es: <strong> @ViewBag.ContraseñaRecuperada </strong> </p>
                     <div class="padre-button-recu">
                                     <div class="div-boton">
-                                    <button class="button" type="submit">
-                                        Inicia Sesion
+                                    <button class="button" type="submit" >
+                                        <a href='@Url.Action("login", "Dennys")'>Iniciar sesion</a>
                                     </button>
                                     </div>
                                     </div>
@@ -27,7 +27,7 @@
                 }
                 else
                 {
-                    <h2 class="h2-recu">Recuperar Contraseña</h2>
+                    <h2 class="h2-recu">Restablecer contraseña</h2>
                     <form action='@Url.Action("RecuperarContraseña", "Dennys")' method="post" class="div-form">
                         <div class="recu-div">
                         <label class="label-recu" for="Email">Email*</label>

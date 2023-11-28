@@ -1,37 +1,42 @@
  <header>
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link"  href='@Url.Action("Bienvenida", "Dennys")'>Inicio</a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link" href='@Url.Action("Ayuda", "Dennys")'>Ayuda</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Funcionalidades
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href= '@Url.Action("ObtenerReservas", "Dennys", new {idCliente = @BD.user.IdCliente})'>Tu Reserva</a></li>
-            <li><a class="dropdown-item" href='@Url.Action("AgregarRestaurante", "Dennys")'>Agregar Restaurante</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Cerrar sesion</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link " aria-disabled="true">Contactanos</a>
-        </li>
-      </ul>
-      
-    </div>
-  </div>
-</nav>
-</header>
+      <nav>
+        <div class="navbar navegador ">
+          <a  href='@Url.Action("Bienvenida", "Dennys")'><img src="../IMG/logo-dennys.png" alt="Logo"></a>
+          <div class="div-navegador">
+
+          <div class="navbar-item">
+            <a class="linkk"  href='@Url.Action("Bienvenida", "Dennys")'>Inicio</a>
+          </div>
+
+          <div class="navbar-item">
+            <a class="linkk" href='@Url.Action("Ayuda", "Dennys")'>Ayuda</a>
+          </div>
+
+          <div class="navbar-item">
+             <li class="nav-item dropdown">
+                <a class="linkk dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Funcionalidades
+                </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href= '@Url.Action("ObtenerReservas", "Dennys", new {idCliente = @BD.user.IdCliente})'>Tu Reserva</a></li>
+                    <li><a class="dropdown-item" href='@Url.Action("AgregarRestaurante", "Dennys")'>Agregar Restaurante</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item sa" href='@Url.Action("Index", "Home")'>Cerrar sesion</a></li>
+                  </ul>
+            </li>
+
+          </div>
+         
+           <div class="navbar-item">
+            <a class="linkk " aria-disabled="true" href= '@Url.Action("Contactanos", "Dennys")'>Contactanos</a>
+          </div>
+
+           
+          </div>
+        </div>
+        
+      </nav>
+    </header>
 
 <main class="main-reseñas">
     <div class="padre-reseñas">

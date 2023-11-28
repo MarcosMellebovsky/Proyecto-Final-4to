@@ -3,14 +3,97 @@
   padding: 0;
   box-sizing: border-box;
 }
-
-/*HEADER*/
-header{
-  box-shadow: 0 0 20px rgba(0, 0, 0,0.1);
-  padding: 15px;
- 
+li{
+  list-style-type: none;
 }
 
+/*NAVEGADOR*/
+
+.div-navegador{
+  display: flex;
+  align-items: center;
+}
+nav {
+  background-color: #ffffff; /* Cambio de fondo a un tono más claro */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+ 
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar img {
+  height: 100px;
+  width: auto;
+  margin-right: 40px;
+}
+
+.navbar-item {
+  font-family: Comic Sans MS;
+  font-weight: bold;
+  font-size: 25px;
+  color: red; /* Cambio de color del texto a amarillo */
+  margin-right: 20px;
+  cursor: pointer;
+  position: relative;
+}
+
+.navbar-user-score {
+  font-family: Comic Sans MS;
+  font-weight: bold;
+  font-size: 25px;
+  color: red; /* Cambio de color del texto a amarillo */
+  margin-right: 20px;
+  position: relative;
+}
+
+.navbar-item::before,
+.navbar-item::after {
+  content: "";
+  position: absolute;
+  width: 100%; 
+  height: 2px;
+  background-color: gray; 
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.navbar-item::before {
+  top: 100%; 
+  left: 0;
+}
+
+.navbar-item::after {
+  top: 100%; /* Coloca las líneas debajo del texto */
+  right: 0;
+}
+
+.navbar-item:hover::before,
+.navbar-item:hover::after {
+  transform: scaleX(1);
+}
+
+
+.navegador-li{
+  font-size: 20px;
+}
+.linkk{
+  text-decoration: none;
+  color: black;
+}
+.linkk:hover{
+  color: rgb(255, 0, 0);
+}
 
 
 /*INDEX*/
@@ -63,6 +146,23 @@ header{
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   
 }
+.div-formm{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 10px;
+  padding: 40px;
+  gap: 7px; 
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  
+}
+.div-formm input{
+  padding: .4rem;
+  border-radius: 10px;
+  border: 1px solid black;
+  
+}
 .padre-recu{
   display: flex;
   justify-content: center;
@@ -96,11 +196,20 @@ header{
 .padre-button{
   display: flex;
   justify-content: center;
+  margin-top: 1rem;
+}
+.padre-buttonn{
+ 
+  justify-content: center;
+  margin-top: 1rem;
 }
 .padre-button-recu{
   display: flex;
   justify-content: center;
   margin: 1rem;
+}
+.dddd{
+  margin-top: 1rem;
 }
 .h2-recu{
   display: flex;
@@ -130,6 +239,12 @@ header{
 
 .div-boton{
   display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.div-botonn{
+  
   justify-content: center;
   flex-direction: column;
   gap: 20px;
@@ -204,6 +319,15 @@ header{
 .ind-text{
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   
+}
+.details-agregar{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 1fr 1fr;
+  gap: 20px;
+}
+.sa:hover{
+  background-color: red;
 }
 .txt-ind{
   display: flex;

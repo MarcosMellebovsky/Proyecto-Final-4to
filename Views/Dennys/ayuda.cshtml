@@ -1,37 +1,42 @@
  <header>
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link"  href='@Url.Action("Bienvenida", "Dennys")'>Inicio</a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link" href='@Url.Action("Ayuda", "Dennys")'>Ayuda</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Funcionalidades
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href= '@Url.Action("ObtenerReservas", "Dennys", new {idCliente = @BD.user.IdCliente})'>Tu Reserva</a></li>
-            <li><a class="dropdown-item" href='@Url.Action("AgregarRestaurante", "Dennys")'>Agregar Restaurante</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Cerrar sesion</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link " aria-disabled="true">Contactanos</a>
-        </li>
-      </ul>
-      
-    </div>
-  </div>
-</nav>
-</header>
+      <nav>
+        <div class="navbar navegador ">
+          <a href='@Url.Action("Bienvenida", "Dennys")'><img src="../IMG/logo-dennys.png" alt="Logo"></a>
+          <div class="div-navegador">
+
+          <div class="navbar-item">
+            <a class="linkk"  href='@Url.Action("Bienvenida", "Dennys")'>Inicio</a>
+          </div>
+
+          <div class="navbar-item">
+            <a class="linkk" href='@Url.Action("Ayuda", "Dennys")'>Ayuda</a>
+          </div>
+
+          <div class="navbar-item">
+             <li class="nav-item dropdown">
+                <a class="linkk dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Funcionalidades
+                </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href= '@Url.Action("ObtenerReservas", "Dennys", new {idCliente = @BD.user.IdCliente})'>Tu Reserva</a></li>
+                    <li><a class="dropdown-item" href='@Url.Action("AgregarRestaurante", "Dennys")'>Agregar Restaurante</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item sa" href='@Url.Action("Index", "Home")'>Cerrar sesion</a></li>
+                  </ul>
+            </li>
+
+          </div>
+         
+           <div class="navbar-item">
+            <a class="linkk " aria-disabled="true" href= '@Url.Action("Contactanos", "Dennys")'>Contactanos</a>
+          </div>
+
+           
+          </div>
+        </div>
+        
+      </nav>
+    </header>
  
  <main>
         <div class="padre">
@@ -81,13 +86,16 @@
         <div class="servicio-padre">
           <div class="contenedor-ayuda">
           <div class="title-servicio">
-            <h2>Servicio postventa y garantías</h2>
+            <h2>Como agrego un restaurante?</h2>
           </div>
           <div class="servicio-detalles">
-          <p>Para realizar consultas/reclamos relacionadas con la garantía o devolución de alguna de tus compras, debajo de esta sección contamos con el apartado "Compra Gamer te ayuda. ¿Cuál es tu consulta?" donde debes exponer tu caso, seleccionando el motivo de "Postventa" que se adapte a tu requerimiento y uno de nuestros representantes te ofrecerá la información correspondiente sobre cómo proceder.</p>
-          <p>También podes sacar un turno para venir en forma presencial a gestionar tu garantía:</p>
-          <a class="boton-servicio" href="#">Turnos postventa/garantias</a>
-        </div>
+          <p> Dirígete al menú de "Funcionalidades" ubicado en la parte superior de la pantalla, haciendo clic en el botón correspondiente. Una vez allí, encontrarás una opción llamada "Agregar Restaurante". Haz clic en este botón y serás guiado a través de un proceso fácil y rápido para agregar la información de tu restaurante. ¡Estamos emocionados de ver tu restaurante en nuestra plataforma y compartirlo con nuestra comunidad de amantes de la buena comida! Si tienes alguna pregunta o necesitas ayuda, no dudes en visitar la sección de "Ayuda" o contactarnos directamente. ¡Gracias por ser parte de nuestra comunidad gastronómica!</p>
+          <p>Tambien podes agregar tu restaurante haciendo clic aqui:</p>
+              <div class="padre-buttonn">
+              <div class="div-botonn">
+                <button class="button" type="submit" ><a href='@Url.Action("AgregarRestaurante", "Dennys")'>Agregar Restaurante</a></button>
+                </div>
+                </div>        </div>
         </div>
       </div>
 
@@ -98,7 +106,11 @@
         </div>
         <div class="consulta-detalles">
         <p>Para realizar una consulta es necesario que inicies sesión en tu cuenta</p>
-        <a class="boton-servicio" href="#">inicar sesion</a>
+        <div class="padre-buttonn">
+              <div class="div-botonn">
+                <button class="button" type="submit"><a  href='@Url.Action("Login", "Dennys")'>Inicia sesion</a></button>
+                </div>
+                </div>
       </div>
       </div>
     </div>

@@ -1,37 +1,42 @@
 <header>
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link"  href='@Url.Action("Bienvenida", "Dennys")'>Inicio</a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link" href='@Url.Action("Ayuda", "Dennys")'>Ayuda</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Funcionalidades
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href= '@Url.Action("ObtenerReservas", "Dennys", new {idCliente = @BD.user.IdCliente})'>Tu Reserva</a></li>
-            <li><a class="dropdown-item" href='@Url.Action("AgregarRestaurante", "Dennys")'>Agregar Restaurante</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href='@Url.Action("Index", "Home")'>Cerrar sesion</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href='@Url.Action("Contactanos", "Dennys")' >Contactanos</a>
-        </li>
-      </ul>
-      
-    </div>
-  </div>
-</nav>
-</header> 
+      <nav>
+        <div class="navbar navegador ">
+          <a  href='@Url.Action("Bienvenida", "Dennys")'><img src="../IMG/logo-dennys.png" alt="Logo"></a>
+          <div class="div-navegador">
+
+          <div class="navbar-item">
+            <a class="linkk"  href='@Url.Action("Bienvenida", "Dennys")'>Inicio</a>
+          </div>
+
+          <div class="navbar-item">
+            <a class="linkk" href='@Url.Action("Ayuda", "Dennys")'>Ayuda</a>
+          </div>
+
+          <div class="navbar-item">
+             <li class="nav-item dropdown">
+                <a class="linkk dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Funcionalidades
+                </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href= '@Url.Action("ObtenerReservas", "Dennys", new {idCliente = @BD.user.IdCliente})'>Tu Reserva</a></li>
+                    <li><a class="dropdown-item" href='@Url.Action("AgregarRestaurante", "Dennys")'>Agregar Restaurante</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item sa" href='@Url.Action("Index", "Home")'>Cerrar sesion</a></li>
+                  </ul>
+            </li>
+
+          </div>
+         
+           <div class="navbar-item">
+            <a class="linkk " aria-disabled="true" href= '@Url.Action("Contactanos", "Dennys")'>Contactanos</a>
+          </div>
+
+           
+          </div>
+        </div>
+        
+      </nav>
+    </header>
  
  <div class="contactoo-padre">
         <div class="titlee-contacto">
@@ -41,10 +46,10 @@
       
       <div class="contenedorr-contacto">
         <div class="parrafoo-contacto">
-          <p>En ArgentinaPC, nos enorgullecemos de ser tu socio tecnológico confiable en el mundo digital. Nuestra pasión por la innovación y el compromiso con la excelencia nos han llevado a convertirnos en líderes en el mercado de la tecnología en Argentina.</p>
-          <p>Desde nuestros humildes comienzos, hemos crecido gracias al apoyo y la confianza de nuestros clientes. Nos esforzamos cada día para proporcionarte los productos y servicios más avanzados que satisfagan tus necesidades tecnológicas en constante evolución.</p>
-          <p>Nuestro equipo está formado por profesionales altamente capacitados y entusiastas que están listos para asesorarte y brindarte soluciones personalizadas. Ya sea que necesites ayuda para encontrar el dispositivo perfecto, resolver problemas técnicos o simplemente obtener información sobre las últimas tendencias tecnológicas, estamos aquí para ayudarte en cada paso del camino.</p>
-          <p>En ArgentinaPC, no solo nos preocupamos por brindarte productos y servicios excepcionales, sino que también valoramos profundamente la satisfacción del cliente. Tu felicidad y confianza son nuestra mayor recompensa, y nos esforzamos incansablemente para superar tus expectativas en cada interacción.</p>
+          <p>¡Bienvenido a Dennys, tu destino gastronómico todo en uno! En Dennys, entendemos que la verdadera experiencia culinaria va más allá de un solo plato. Por eso, te ofrecemos no solo un restaurante, sino una colección de experiencias culinarias que abarcan una variedad de sabores y estilos.Descubre la diversidad de opciones que Dennys tiene para ofrecer. Desde platos exquisitos hasta pequeños rincones gastronómicos, cada restaurante dentro de Dennys tiene su propia historia que contar en forma de sabores únicos y atmosferas encantadoras.</p>
+          <p>Descubre la diversidad de opciones que Dennys tiene para ofrecer. Desde platos exquisitos hasta pequeños rincones gastronómicos, cada restaurante dentro de Dennys tiene su propia historia que contar en forma de sabores únicos y atmosferas encantadoras.</p>
+          <p>En Dennys, tú eres el protagonista de tu experiencia culinaria. ¿Quieres reservar una mesa para una ocasión especial? Nuestro sistema de reservas está diseñado para hacerlo fácil y conveniente. ¿Te encantó un plato en particular? ¡Déjanos saber tu opinión y comparte tu reseña para que otros puedan disfrutar de tu recomendación!</p>
+          <p>Dennys es más que un local, es una comunidad apasionada por la comida, la exploración y la conexión a través de experiencias culinarias. Únete a nosotros mientras exploramos el mundo de los sabores juntos. ¡Bienvenido a Dennys, donde cada comida es una aventura única!</p>
         </div>
        
         <div class="div-mapaa">
