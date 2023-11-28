@@ -7,26 +7,6 @@ VALUES('Kansas', 'Av. del Libertador 4625', '12:00', '00:00', '1999-06-09', 'htt
 	  ('El Ferroviario', 'Av. Reservistas Argentinos 219', '12:00', '23:00', '2006-05-24', 'https://elferroviarioparrilla.com/images/logo.png', 'Con el paso del tiempo y respondiendo a las peticiones de los comensales, se fueron incluyendo diversidad de platos y manjares. Se incorporaron al menú carnes asadas, guarniciones, pastas, picadas, postres elaborados, carnes exóticas, vinos de todas las gamas y tragos lo que llevó al pequeño buffet del Club a convertirse en el Restaurante- Parrilla tan famoso que hoy conocemos, con su característica fidelidad por las tradiciones nacionales.')
 
 
-INSERT INTO Menu(IdRestaurante, Nombre, Descripcion, Precio) 
-VALUES(10, 'Churrasquito de Pollo', 'Nuestro churrasquito de pollo a la parrilla combina tierna pechuga de pollo sazonada y asada a la parrilla para obtener un sabor jugoso y ahumado. Perfecto para satisfacer tus antojos de pollo a la parrilla', 3700),
-	  (8, 'Bucket Clasico', 'Disfruta de una deliciosa y crujiente experiencia gastronómica con nuestro emblemático Bucket de Pollo. Este irresistible combo te ofrece piezas de pollo frito a la perfección, sazonadas con nuestras especias secretas, que harán que cada bocado sea inolvidable. Ideal para compartir en familia o con amigos', 6400),
-	  (7, 'Bacon Cheeseburger', 'Hamburguesa de carne de 120g, cheddar, panceta crocante y salsa Dennys', 3400),
-	  (6, 'Houston Barbecue Ribs', 'Costillar de cerdo asado a fuego lento, aderezado con salsa barbacoa, acompañado de papas fritas y cole slaw o papa rellena.', 15600),
-	  (9, 'Bife de lomo fino', 'Un exquisito bife de lomo, tierno y jugoso, cocinado a la perfección. Este corte premium de carne se derrite en tu boca con su sabor inigualable. Cada bocado es una experiencia de placer gastronómico, con su textura suave y su sabor inigualable. Una verdadera indulgencia para los amantes de la carne.', 19140)
-
-
-CREATE PROCEDURE sp_AgregarMenu
-@IdRestaurante int,
-@Nombree varchar(50), 
-@DescripcionMenu varchar(500),
-@Precioo int
-AS 
-BEGIN
-	INSERT INTO Menu(IdRestaurante, Nombre, Descripcion, Precio) 
-	VALUES(@IdRestaurante, @Nombree, @DescripcionMenu, @Precioo)
-END
-
-
 
 
 CREATE PROCEDURE sp_AgregarRestaurante
@@ -69,12 +49,7 @@ BEGIN
 	SELECT * FROM Restaurante WHERE IdRestaurante = @IdRestaurante
 END
 
-CREATE PROCEDURE sp_GetInfoMenu
-@IdRestaurante int
-AS 
-BEGIN
-	SELECT * FROM Menu WHERE IdRestaurante = @IdRestaurante
-END
+
 
 ALTER PROCEDURE sp_GetInfoReseña
 @IdRestaurante int,
@@ -132,3 +107,12 @@ BEGIN
 	DELETE FROM Restaurante WHERE IdRestaurante = @IdRestaurante
 END
 
+
+ALTER PROCEDURE sp_GetListaReservasDeUnCliente
+@IdCliente int
+AS 
+BEGIN
+	SELECT Rese.*, Rest.Nombre as NombreRestaurante FROM Reserva Rese
+	INNER JOIN Restaurante Rest ON Rese.IdRestaurante = Rest.IdRestaurante
+	Where IdCliente = @IdCliente
+END

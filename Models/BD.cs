@@ -2,16 +2,8 @@ using System.Data.SqlClient;
 using Dapper;
 public static class BD
 {
-    private static string connectionString = @"Server=DESKTOP-OF64MA2\SQLEXPRESS;DataBase=ReservaRestaurantes;Trusted_Connection=True;";
-    public static void AgregarMenu(Menu men)
-    {
-        using(SqlConnection db = new SqlConnection(connectionString))
-        {
-            string sp = "sp_AgregarMenu";
-            db.Execute(sp, new{@IdRestaurante = men.IdRestaurante, @Nombree = men.Nombre, @DescripcionMenu = men.Descripcion, @Precioo = men.Precio}, 
-            commandType: System.Data.CommandType.StoredProcedure);
-        }
-    }
+    private static string connectionString = @"Server=localhost;DataBase=ReservaRestaurantes;Trusted_Connection=True;";
+    public static Cliente user;
 
     public static void AgregarRestaurante(Restaurante resto)
     {
@@ -61,17 +53,6 @@ public static class BD
         }
         return Restaurante;
     }
-    public static Menu GetInfoMenu(int idRestaurante)
-    {
-        Menu Menu = new Menu();
-        using(SqlConnection db = new SqlConnection(connectionString))
-        {
-            string sp = "sp_GetInfoMenu";
-            Menu = db.QueryFirstOrDefault<Menu>(sp,new{@IdRestaurante = idRestaurante}, 
-            commandType: System.Data.CommandType.StoredProcedure);
-        }
-        return Menu;
-    }
     public static List<Reseña> GetListaReseñasDeUnRestaurante(int idRestaurante)
     {
         List<Reseña> ListaReseñas = new List<Reseña>();
@@ -88,7 +69,7 @@ public static class BD
         using(SqlConnection db = new SqlConnection(connectionString))
         {
             string sp = "sp_Registro";
-            db.Execute(sp, new{@Nombre = cliente.Nombre, @Apellido = cliente.Apellido,  @Email = cliente.Email,@Contraseña = cliente.Contraseña}, 
+            db.Execute(sp, new{@Nombre = cliente.Nombre, @Apellido = cliente.Apellido,  @Email = cliente.Email, @Contraseña = cliente.Contraseña}, 
             commandType: System.Data.CommandType.StoredProcedure);
         }
     }
@@ -128,6 +109,17 @@ public static class BD
             db.Execute(sp, new{@IdRestaurante = IdRestaurante}, 
             commandType: System.Data.CommandType.StoredProcedure);
         }
+    }
+    public static List<Reserva> GetListaReservaDeUnCliente(int idCliente)
+    {
+        List<Reserva> ListaReservas = new List<Reserva>();
+        using(SqlConnection db = new SqlConnection(connectionString))
+        {
+            string sp = "sp_GetListaReservaDeUnCliente";
+            ListaReservas = db.Query<Reserva>(sp,new{@IdCliente = idCliente}, 
+            commandType: System.Data.CommandType.StoredProcedure).ToList();
+        }
+        return ListaReservas;
     }
    
 }

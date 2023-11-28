@@ -17,7 +17,7 @@
             Funcionalidades
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Perfil</a></li>
+            <li><a class="dropdown-item" href= '@Url.Action("ObtenerReservas", "Dennys", new {idCliente = @BD.user.IdCliente})'>Tu Reserva</a></li>
             <li><a class="dropdown-item" href='@Url.Action("AgregarRestaurante", "Dennys")'>Agregar Restaurante</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Cerrar sesion</a></li>
@@ -27,10 +27,7 @@
           <a class="nav-link " aria-disabled="true">Contactanos</a>
         </li>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      
     </div>
   </div>
 </nav>
@@ -47,22 +44,19 @@
                 <div class="div-p-Direccion">
                     <p>@item.Direccion</p>
                 </div>
+
                 <div class="btns">
-                    <button type="button" class="bot1" data-bs-toggle="modal" data-bs-target="#ModalValorar" onclick="cargarIdRestaurante(@item.IdRestaurante)">
-                    Valorar
-                    </button>
+                    <button type="button" class="bot1" data-bs-toggle="modal" data-bs-target="#ModalValorar" onclick="cargarIdRestaurante(@item.IdRestaurante)">Valorar</button>
+                    
                     <div class="btn3">
-                        <button type="button" class="bot2" data-bs-toggle="modal" data-bs-target="#ModalReserva">Reservar</button>
+                        <button type="button" class="bot2" data-bs-toggle="modal" data-bs-target="#ModalReserva" onclick="cargarIdRestaurante(@item.IdRestaurante)">Reservar</button>
                     </div>
-                    <button type="button" class="bot1" data-bs-toggle="modal" data-bs-target="#ModalVerMas" onclick="mostrarDetallesRestaurante(@item.IdRestaurante)">
-                    Ver Mas
-                    </button>
-                     <a href='@Url.Action("ObtenerReseñas", "Dennys", new{idResto = @item.IdRestaurante})' class="bot1">
-                    Ver Reseñas
-                    </a>
-                   <a href='@Url.Action("EliminarRestaurante", "Dennys", new {idResto = @item.IdRestaurante})' class="bot1">
-                    Eliminar Candidato
-                    </a>
+
+                    <button type="button" class="bot1" data-bs-toggle="modal" data-bs-target="#ModalVerMas" onclick="mostrarDetallesRestaurante(@item.IdRestaurante)">Ver Mas</button>
+
+                  <a href='@Url.Action("ObtenerReseñas", "Dennys", new{idResto = @item.IdRestaurante})' class="bot1">Ver Reseñas</a>
+
+                  <a href='@Url.Action("EliminarRestaurante", "Dennys", new {idResto = @item.IdRestaurante})' class="bot1">Eliminar Restaurante</a>
 
                     
                 </div>
@@ -91,7 +85,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button class="btn btn-primary" onclick="alertaReserva(), GuardarReserva(@ViewBag.InfoCliente.IdCliente)">Guardar Reserva</button>
+          <button class="btn btn-primary" onclick="alertaReserva(), GuardarReserva(@BD.user.IdCliente)">Guardar Reserva</button>
         </div>
       </div>
     </div>
@@ -106,12 +100,12 @@
         <div class="modal-content">
             <div class="modal-header">
                 <div class="centrar-titlulo">
-                    <h5 class="modal-title">@ViewBag.InfoCliente.Nombre</h5>
+                    <h5 class="modal-title">@BD.user.Nombre</h5>
                 </div>
             </div>
            
                 <div class="modal-body">
-                    <input type="hidden" name="idCliente" value="@ViewBag.InfoCliente.IdCliente">
+                    <input type="hidden" name="idCliente" value="@BD.user.IdCliente">
                     <input type="hidden" name="idRestaurante" id="IdRestaurante">
                     <div id="cuadroTexto">
                     <p><textarea name="Comentario" placeholder="Comparte tu opinión!" id="comentario" maxlength="500"  oninput="validarLongitud(this)"></textarea></p>
@@ -134,7 +128,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Salir</button>
-                    <button class="btn btn-primary" data-bs-dismiss="modal" onclick="GuardarReseña(@ViewBag.InfoCliente.IdCliente)">Publicar</button>
+                    <button class="btn btn-primary" data-bs-dismiss="modal" onclick="GuardarReseña(@BD.user.IdCliente)">Publicar</button>
                 </div>
             
         </div>

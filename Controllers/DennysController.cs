@@ -22,6 +22,7 @@ public class DennysController : Controller
     }
     public IActionResult Bienvenida()
     {
+        ViewBag.ListaRestaurantes = BD.GetListaRestaurantes();
         return View("Bienvenida");
     }
 
@@ -37,7 +38,7 @@ public class DennysController : Controller
         return true;
     }
     
-    public void GuardarReservaAjax(int IdCliente, int IdRestaurante, DateTime fechaReserva, int personasReserva, string horarioReserva)
+    public void GuardarReservaAjax(int IdRestaurante, int IdCliente, DateTime fechaReserva, int personasReserva, string horarioReserva)
     {
         BD.AgregarReserva(IdRestaurante, IdCliente, fechaReserva, horarioReserva, personasReserva);
     }
@@ -48,7 +49,7 @@ public class DennysController : Controller
         
     if (cliente != null)
     {
-        ViewBag.InfoCliente = cliente;
+        BD.user = cliente;
         ViewBag.ListaRestaurantes = BD.GetListaRestaurantes();
         return View("Bienvenida");
     }
@@ -85,13 +86,7 @@ public Restaurante ObtenerDetallesRestaurante(int id)
        Restaurante UnRestaurante = BD.GetInfoRestaurante(id);
        return UnRestaurante;
     }
-public Menu ObtenerDetallesMenu(int id)
-    {
-       Menu UnMenu = BD.GetInfoMenu(id);
-       return UnMenu;
-    }
   
-
 public IActionResult ObtenerReseñas(int idResto)
 {
     ViewBag.ListaReseñas = BD.GetListaReseñasDeUnRestaurante(idResto);
@@ -106,17 +101,25 @@ public IActionResult AgregarRestaurante()
 public IActionResult GuardarRestaurante(Restaurante resto)
 {
     BD.AgregarRestaurante(resto);
-    return View("Bienvenida");
+    return RedirectToAction("Bienvenida");
 }
 public IActionResult EliminarRestaurante(int idResto)
 {
     BD.EliminarRestaurante(idResto);
-    return View("Bienvenida");
+    return RedirectToAction("Bienvenida");
 }
 
+public IActionResult ObtenerReservas(int idCliente)
+{
+    ViewBag.ListaReservas = BD.GetListaReservaDeUnCliente(idCliente);
+    return View("Reservas");
+}
 
-
-
+public IActionResult GuardarCliente(Cliente cliente)
+{
+    BD.Registro(cliente);
+    return View("Login");
+}
 
 
 

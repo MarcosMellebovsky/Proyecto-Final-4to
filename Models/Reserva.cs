@@ -6,5 +6,5 @@ public class Reserva
     public DateTime FechaReserva{get;set;}
     public string HoraReserva{get;set;}
      public int CantidadPersonas{get;set;}
-
+     public string NombreRestaurante{get;set;}
 }

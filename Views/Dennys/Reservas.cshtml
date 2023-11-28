@@ -1,0 +1,15 @@
+<main class="main-reseñas">
+    <div class="padre-reseñas">
+        @foreach (var item in ViewBag.ListaReservas)
+        {
+            <div class="card-reseña">
+                <div class="dentro-reseñas">
+                    <p>@item.NombreRestaurante</p>
+                    <p>@item.FechaReserva</p>
+                    <p>@item.HoraReserva</p>
+                    <p>@item.CantidadPersonas</p>
+                </div>
+            </div>
+        }
+    </div>
+</main>
