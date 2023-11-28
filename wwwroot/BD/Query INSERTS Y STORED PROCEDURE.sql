@@ -9,6 +9,20 @@ VALUES('Kansas', 'Av. del Libertador 4625', '12:00', '00:00', '1999-06-09', 'htt
 
 
 
+CREATE PROCEDURE sp_AgregarMenu
+@IdRestaurante int,
+@Nombree varchar(50), 
+@DescripcionMenu varchar(500),
+@Precioo int
+AS 
+BEGIN
+	INSERT INTO Menu(IdRestaurante, Nombre, Descripcion, Precio) 
+	VALUES(@IdRestaurante, @Nombree, @DescripcionMenu, @Precioo)
+END
+
+
+
+
 CREATE PROCEDURE sp_AgregarRestaurante
 @NomRestaurante varchar(50),
 @Direccionn varchar(100),
@@ -49,7 +63,12 @@ BEGIN
 	SELECT * FROM Restaurante WHERE IdRestaurante = @IdRestaurante
 END
 
-
+CREATE PROCEDURE sp_GetInfoMenu
+@IdRestaurante int
+AS 
+BEGIN
+	SELECT * FROM Menu WHERE IdRestaurante = @IdRestaurante
+END
 
 ALTER PROCEDURE sp_GetInfoReseña
 @IdRestaurante int,
@@ -67,6 +86,15 @@ CREATE PROCEDURE sp_GetListaReseñasDeUnRestaurante
 AS 
 BEGIN
 	SELECT * FROM Reseña Where IdRestaurante = @IdRestaurante
+END
+
+CREATE PROCEDURE sp_GetListaReservaDeUnCliente
+@IdCliente int
+AS 
+BEGIN
+	SELECT Rese.*, Rest.Nombre as NombreRestaurante FROM Reserva Rese
+	INNER JOIN Restaurante Rest ON Rese.IdRestaurante = Rest.IdRestaurante
+	Where IdCliente = @IdCliente
 END
 
 ALTER PROCEDURE sp_Registro
@@ -100,19 +128,3 @@ BEGIN
 	VALUES(@IdRestaurante, @IdCliente, @FechaReserva, @Hora, @Cantidad)
 END
 
-CREATE PROCEDURE sp_EliminarRestaurante
-@IdRestaurante int 
-AS
-BEGIN
-	DELETE FROM Restaurante WHERE IdRestaurante = @IdRestaurante
-END
-
-
-ALTER PROCEDURE sp_GetListaReservasDeUnCliente
-@IdCliente int
-AS 
-BEGIN
-	SELECT Rese.*, Rest.Nombre as NombreRestaurante FROM Reserva Rese
-	INNER JOIN Restaurante Rest ON Rese.IdRestaurante = Rest.IdRestaurante
-	Where IdCliente = @IdCliente
-END
