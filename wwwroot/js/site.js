@@ -6,6 +6,7 @@
     incorrecta1.innerHTML = ""
     const incorrecta2 = document.getElementById('incorrecta2')
     incorrecta2.innerHTML = ""
+    const email = document.getElementById('email').value;
     if (validar = true) {
         if(campoContraseña != campoContraseña2){
             incorrecta1.innerHTML = "Las contraseñas no coinciden"
@@ -17,11 +18,17 @@
               incorrecta1.innerHTML = 'La contraseña debe tener al menos 8 caracteres.';
               return false;  }  
               else {
-                    return true;
-                   }
+                if (!email.includes('@')) {
+                  return true;
+                } else{
+                  incorrecta1.innerHTML = 'el correo electronico no es valido.';
+                  return false;
+                }  
+                }
         }
     }
   }
+  
 
     function mostrarDetallesRestaurante(IdRestaurante) {
         $.ajax({
@@ -209,6 +216,8 @@
                 }
         });
     }
+
+    
 
     function Calendario() {
         (async () => {

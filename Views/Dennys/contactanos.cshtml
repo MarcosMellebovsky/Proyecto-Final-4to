@@ -63,17 +63,17 @@
     </div>
     <div class="formularioo-contacto">
    
-    <form class="formularioo" action="">
-      
+    <form class="formularioo" action='@Url.Action("GuardarClienteContactado", "Dennys")' method="post">
+      <input type="hidden" name="idCliente" value="@BD.user.IdCliente">
       <label for="name">Nombre</label>
-      <input class="in-ddd" type="text" required name="name" placeholder="nombre" >
+      <input class="in-ddd" type="text" required name="Nombre" placeholder="nombre" >
 
 
       <label for="text">Apellido</label>
       <input class="in-ddd" type="text"required name="Apellido" placeholder="apellido" >
 
       <label for="text">E-mail</label>
-      <input class="in-ddd" type="email" required name="E-mail" placeholder="e-mail" >
+      <input class="in-ddd" type="email" required name="Email" placeholder="e-mail" >
 
       <label for="Telefono">Telefono</label>
       <input class="in-ddd" type="tel" required name="Telefono" placeholder="telefono" >
@@ -82,7 +82,7 @@
       <textarea class="in-ddd" id="message" name="Mensaje" placeholder="mensaje" ></textarea>
 
       <div class="submitt-enviar">
-        <button type="submit" class="aaa">
+        <button onclick="alertaReserva()" class="aaa">
             <a class="botonn">Contáctanos</a>
         </button>
       

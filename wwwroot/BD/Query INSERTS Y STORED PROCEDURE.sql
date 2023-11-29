@@ -108,6 +108,21 @@ BEGIN
 	VALUES(@Nombre, @Apellido, @Contraseña, @Email)
 END
 
+ALTER PROCEDURE sp_Contacto
+@idCliente int,
+@Nombre varchar(50),
+@Apellido varchar(50),
+@Telefono int,
+@Email varchar(50),
+@Mensaje varchar(50)
+
+AS 
+BEGIN
+	INSERT INTO Contacto(idCliente,Nombre, Apellido,Telefono, Email, Mensaje)
+	VALUES(@idCliente,@Nombre, @Apellido,@Telefono, @Email,@Mensaje )
+END
+
+
 ALTER PROCEDURE sp_VerificarCredenciales
 @Email varchar(50)
 AS
@@ -127,4 +142,13 @@ BEGIN
 	INSERT INTO Reserva(IdRestaurante, IdCliente, FechaReserva, HoraReserva, CantidadPersonas)
 	VALUES(@IdRestaurante, @IdCliente, @FechaReserva, @Hora, @Cantidad)
 END
+
+
+
+CREATE PROCEDURE sp_EliminarRestaurante
+    @IdRestaurante INT
+AS
+BEGIN
+        DELETE FROM Restaurante WHERE IdRestaurante = @IdRestaurante; 
+END;
 
