@@ -33,6 +33,7 @@
                         <label class="label-recu" for="Email">Email*</label>
                         <input type="text" name="Email" placeholder="ingrese su email" required>
                         </div>
+                  <div class="abuelo-button-recu">
                                     <div class="padre-button-recu">
                                     <div class="div-boton">
                                     <button class="button" type="submit">
@@ -40,6 +41,15 @@
                                     </button>
                                     </div>
                                     </div>
+
+                                   <div class="padre-button">
+                <div class="div-boton">
+                  <button class="button" type="submit">
+                   <a href='@Url.Action("login", "Dennys")'>Volver</a>
+                  </button>
+                </div>
+              </div>
+              </div>
 
                         @if (ViewBag.ErrorRecuperación != null)
                         {
