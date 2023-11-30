@@ -18,7 +18,7 @@
               incorrecta1.innerHTML = 'La contraseña debe tener al menos 8 caracteres.';
               return false;  }  
               else {
-                if (!email.includes('@')) {
+                if (email.includes('@')) {
                   return true;
                 } else{
                   incorrecta1.innerHTML = 'el correo electronico no es valido.';
