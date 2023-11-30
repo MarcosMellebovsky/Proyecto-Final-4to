@@ -77,16 +77,18 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
+          <div class="div-lAL">
           <h5 class="modal-title">Reserva de Mesa</h5>
+          </div>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <form method="post">
-          
-            <button type="button" class="btn btn-primary" onclick="Calendario()">Seleccionar Fecha</button>
-            <button type="button" class="btn btn-primary" onclick="SeleccionarCantidadPersonas()">Seleccionar Personas</button>
-            <button type="button" class="btn btn-primary" onclick="SeleccionarHorario()">Seleccionar Horario</button>
-
+          <div class="imgs-flex">
+            <img class="p"  src="../IMG/calendario.png" onclick="Calendario()" alt="">
+            <img class="p" src="../IMG/personas.png" onclick="SeleccionarCantidadPersonas()" alt="">
+            <img class="p" src="../IMG/reloj.png" onclick="SeleccionarHorario()" alt="">
+            </div>
            
           </form>
         </div>
@@ -174,7 +176,7 @@
   <div class="grupo-1"> 
     <div class="box">
       <figure>
-        <a href="#">
+        <a href='@Url.Action("Bienvenida", "Dennys")'>
           <img src="../img/logo-dennys.png"  >
         </a>
       </figure>

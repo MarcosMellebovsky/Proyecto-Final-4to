@@ -82,7 +82,7 @@
       <textarea class="in-ddd" id="message" name="Mensaje" placeholder="mensaje" ></textarea>
 
       <div class="submitt-enviar">
-        <button onclick="alertaReserva()" class="aaa">
+        <button onclick="alertaCliente(), GuardarCliente(@BD.user.IdCliente)" class="aaa">
             <a class="botonn">Contáctanos</a>
         </button>
       
@@ -99,8 +99,8 @@
   <div class="grupo-1"> 
     <div class="box">
       <figure>
-        <a href="#">
-          <img src="../img/logo-dennys.png"  >
+        <a href='@Url.Action("Bienvenida", "Dennys")'>
+          <img src="../img/logo-dennys.png"  > 
         </a>
       </figure>
     </div>

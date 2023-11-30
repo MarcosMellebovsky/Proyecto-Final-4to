@@ -46,6 +46,14 @@ public class DennysController : Controller
     {
         BD.AgregarReserva(IdRestaurante, IdCliente, fechaReserva, horarioReserva, personasReserva);
     }
+
+     public JsonResult GuardarClienteContactado(Contacto contacto)
+    {
+            BD.AgregarCliente(contacto);    
+
+           return Json(new { success = true });
+
+            }
     
 
    public IActionResult IniciarSesion(string Email, string Contraseña)
@@ -125,10 +133,7 @@ public IActionResult GuardarCliente(Cliente cliente)
     BD.Registro(cliente);
     return View("Login");
 }
-public void GuardarClienteContactado(Contacto clienteContactado)
-{
-    BD.Contactanos(clienteContactado);
-}
+
 
 
 

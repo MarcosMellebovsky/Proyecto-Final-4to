@@ -402,6 +402,9 @@ nav {
   border-radius: 10px 10px 0px 0px ;
   width: 100%;
 }
+.p{
+  cursor: pointer;
+}
 .div-p-nombre{
   display: flex;
   justify-content: center;
@@ -645,6 +648,10 @@ nav {
     border-bottom: 2px solid #0056b3; /* Borde inferior del encabezado */
     display: flex;
     justify-content: center;
+}
+.div-lAL{
+  display: flex;
+  justify-content: center;
 }
 
 /* Estilos del cuerpo del modal */
@@ -986,4 +993,13 @@ a{
       width: 90%;
   }
   
+}
+.imgs-flex{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+.imgs-flex img{
+  width: 30%;
 }

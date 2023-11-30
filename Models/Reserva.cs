@@ -7,4 +7,5 @@ public class Reserva
     public string HoraReserva{get;set;}
      public int CantidadPersonas{get;set;}
      public string NombreRestaurante{get;set;}
+     public string Imagen{get;set;}
 }

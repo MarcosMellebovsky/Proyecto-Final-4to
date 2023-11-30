@@ -13,6 +13,14 @@
       "PackagePath": "staticwebassets\\BD\\Query INSERTS Y STORED PROCEDURE.sql"
     },
     {
+      "Id": "C:\\Users\\MARCOS\\Proyecto-Final-4to\\wwwroot\\IMG\\calen.png",
+      "PackagePath": "staticwebassets\\IMG\\calen.png"
+    },
+    {
+      "Id": "C:\\Users\\MARCOS\\Proyecto-Final-4to\\wwwroot\\IMG\\calendario.png",
+      "PackagePath": "staticwebassets\\IMG\\calendario.png"
+    },
+    {
       "Id": "C:\\Users\\MARCOS\\Proyecto-Final-4to\\wwwroot\\IMG\\estrella.PNG",
       "PackagePath": "staticwebassets\\IMG\\estrella.PNG"
     },
@@ -21,8 +29,20 @@
       "PackagePath": "staticwebassets\\IMG\\logo-dennys.png"
     },
     {
+      "Id": "C:\\Users\\MARCOS\\Proyecto-Final-4to\\wwwroot\\IMG\\personas.jpg",
+      "PackagePath": "staticwebassets\\IMG\\personas.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MARCOS\\Proyecto-Final-4to\\wwwroot\\IMG\\personas.png",
+      "PackagePath": "staticwebassets\\IMG\\personas.png"
+    },
+    {
       "Id": "C:\\Users\\MARCOS\\Proyecto-Final-4to\\wwwroot\\IMG\\portada.png",
       "PackagePath": "staticwebassets\\IMG\\portada.png"
+    },
+    {
+      "Id": "C:\\Users\\MARCOS\\Proyecto-Final-4to\\wwwroot\\IMG\\reloj.png",
+      "PackagePath": "staticwebassets\\IMG\\reloj.png"
     },
     {
       "Id": "C:\\Users\\MARCOS\\Proyecto-Final-4to\\wwwroot\\css\\site.css",

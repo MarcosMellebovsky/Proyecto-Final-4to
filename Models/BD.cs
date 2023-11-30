@@ -42,6 +42,25 @@ public static class BD
             commandType: System.Data.CommandType.StoredProcedure);
         }
     }
+
+     public static void AgregarCliente(Contacto contacto)
+{
+    using (SqlConnection db = new SqlConnection(connectionString))
+    {
+        string sp = "sp_Contacto";
+        db.Execute(sp, new
+        {
+            @IdCliente = contacto.IdCliente,
+            @Nombre = contacto.Nombre,
+            @Apellido = contacto.Apellido,
+            @Telefono = contacto.Telefono,
+            @Email = contacto.Email,
+            @Mensaje = contacto.Mensaje
+        },
+        commandType: System.Data.CommandType.StoredProcedure);
+    }
+}
+
     public static Restaurante GetInfoRestaurante(int idRestaurante)
     {
         Restaurante Restaurante = new Restaurante();

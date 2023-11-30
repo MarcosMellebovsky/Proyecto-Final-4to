@@ -55,64 +55,32 @@
         Swal.fire({
             title: "Reserva enviada",
             text: "  Reserva enviada con exito!!",
-            //html:"",
             icon: 'success',
             confirmButtonText: 'Volver',
             footer: '<span class="rojo"> Esta  informacion es importante!</span>',
-            //width: '90%',
-            // padding:
-            // background:
-            //grow: 'fullscreen'
-            // backdrop:
             timer: 100000,
             timerProgressBar: true,
-            // toast:
-            // position:
             allowOutsideClick: false,
             allowEscapeKey: true,
             allowEnterKey: true,
             stopKeydownPropagation: false,
-        
-            // input:
-            // inputPlaceholder:
-            // inputValue:
-            // inputOptions:
-            
-            //  customClass:
-            // 	container:
-            // 	popup:
-            // 	header:
-            // 	title:
-            // 	closeButton:
-            // 	icon:
-            // 	image:
-            // 	content:
-            // 	input:
-            // 	actions:
-            // 	confirmButton:
-            // 	cancelButton:
-            // 	footer:	
-        
-            // showConfirmButton:
-            // confirmButtonColor:
-            // confirmButtonAriaLabel:
-        
-            // showCancelButton:
-            // cancelButtonText:
-            // cancelButtonColor:
-            // cancelButtonAriaLabel:
-            
-            // buttonsStyling:
-            // showCloseButton:
-            // closeButtonAriaLabel:
-        
-        
-            // imageUrl:
-            // imageWidth:
-            // imageHeight:
-            // imageAlt:
         });
     }
+    function alertaCliente() {
+      Swal.fire({
+          title: "Gracias por contactarte con nosotros!!!",
+          text: "En menos  de 24 horas le responderemos!",
+          icon: 'success',
+          confirmButtonText: 'Volver',
+          footer: '<span class="rojo"> Esta  informacion es importante!</span>',
+          timer: 10000,
+          timerProgressBar: true,
+          allowOutsideClick: false,
+          allowEscapeKey: true,
+          allowEnterKey: true,
+          stopKeydownPropagation: false,
+      });
+  }
     function alertaReseña() {
       Swal.fire({
           title: "Reseña enviada",
@@ -121,58 +89,12 @@
           icon: 'success',
           confirmButtonText: 'Volver',
           footer: '<span class="rojo"> Esta  informacion es importante!</span>',
-          //width: '90%',
-          // padding:
-          // background:
-          //grow: 'fullscreen'
-          // backdrop:
           timer: 100000,
           timerProgressBar: true,
-          // toast:
-          // position:
           allowOutsideClick: false,
           allowEscapeKey: true,
           allowEnterKey: true,
           stopKeydownPropagation: false,
-      
-          // input:
-          // inputPlaceholder:
-          // inputValue:
-          // inputOptions:
-          
-          //  customClass:
-          // 	container:
-          // 	popup:
-          // 	header:
-          // 	title:
-          // 	closeButton:
-          // 	icon:
-          // 	image:
-          // 	content:
-          // 	input:
-          // 	actions:
-          // 	confirmButton:
-          // 	cancelButton:
-          // 	footer:	
-      
-          // showConfirmButton:
-          // confirmButtonColor:
-          // confirmButtonAriaLabel:
-      
-          // showCancelButton:
-          // cancelButtonText:
-          // cancelButtonColor:
-          // cancelButtonAriaLabel:
-          
-          // buttonsStyling:
-          // showCloseButton:
-          // closeButtonAriaLabel:
-      
-      
-          // imageUrl:
-          // imageWidth:
-          // imageHeight:
-          // imageAlt:
       });
   }
   
@@ -209,6 +131,28 @@
             dataType: 'JSON',
             url: '/Dennys/GuardarReservaAjax',
             data: { IdRestaurante: IdRes, IdCliente: IDCliente, fechaReserva: fecha, personasReserva: personas, horarioReserva: horario},
+            success:
+                function (response) 
+                {
+
+                }
+        });
+    }
+
+    function GuardarCliente(IDCliente) {
+      
+      const nombre = localStorage.getItem("nombre-cliente"),
+        apellido = localStorage.getItem("apellido-cliente"),
+        email = localStorage.getItem("email-cliente"),
+        telefono = localStorage.getItem("telefono-cliente"),
+        mensaje = localStorage.getItem("mensaje-cliente");
+
+      $.ajax(
+        {
+            type: 'POST',
+            dataType: 'JSON',
+            url: '/Dennys/GuardarClienteContactado',
+            data: {IdCliente: IDCliente, Nombre: nombre, Apellido: apellido, Telefono: telefono, Email:email, Mensaje:mensaje},
             success:
                 function (response) 
                 {
