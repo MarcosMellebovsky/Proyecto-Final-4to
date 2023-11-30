@@ -47,13 +47,11 @@ public class DennysController : Controller
         BD.AgregarReserva(IdRestaurante, IdCliente, fechaReserva, horarioReserva, personasReserva);
     }
 
-     public JsonResult GuardarClienteContactado(Contacto contacto)
+    public void GuardarClienteContactado(Contacto contacto)
     {
-            BD.AgregarCliente(contacto);    
-
-           return Json(new { success = true });
-
-            }
+        contacto.IdCliente = BD.user.IdCliente;
+        BD.AgregarCliente(contacto);    
+    }
     
 
    public IActionResult IniciarSesion(string Email, string Contraseña)
@@ -95,14 +93,15 @@ public IActionResult RecuperarContraseña(string email)
     return View("RecuperarContraseña");
 }
 public Restaurante ObtenerDetallesRestaurante(int id)
-    {
-       Restaurante UnRestaurante = BD.GetInfoRestaurante(id);
-       return UnRestaurante;
-    }
+{
+    Restaurante UnRestaurante = BD.GetInfoRestaurante(id);
+    return UnRestaurante;
+}
   
 public IActionResult ObtenerReseñas(int idResto)
 {
     ViewBag.ListaReseñas = BD.GetListaReseñasDeUnRestaurante(idResto);
+    ViewBag.InfoReseñas = BD.GetInfoReseña(idResto);
     return View("VerReseñas");
 }
 
@@ -125,6 +124,7 @@ public IActionResult EliminarRestaurante(int idResto)
 public IActionResult ObtenerReservas(int idCliente)
 {
     ViewBag.ListaReservas = BD.GetListaReservaDeUnCliente(idCliente);
+    ViewBag.Restaurantes = BD.GetListaRestauranteReservaDeUnCliente(idCliente);
     return View("Reservas");
 }
 

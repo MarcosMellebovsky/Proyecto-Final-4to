@@ -41,7 +41,7 @@
                 $('#modalDireccion').text(response.direccion);
                 $('#modalApertura').text(response.horarioApertura);
                 $('#modalClausura').text(response.horarioClausura);
-                $('#modalFechaFundacion').text(response.fechaFundacion);
+                $('#modalFechaFundacion').text(response.fechaFundacion.substring(0, 10));
                 $('#modalImagen').attr('src', response.imagen);
             }
         });
@@ -141,22 +141,21 @@
 
     function GuardarCliente(IDCliente) {
       
-      const nombre = localStorage.getItem("nombre-cliente"),
-        apellido = localStorage.getItem("apellido-cliente"),
-        email = localStorage.getItem("email-cliente"),
-        telefono = localStorage.getItem("telefono-cliente"),
-        mensaje = localStorage.getItem("mensaje-cliente");
-
+      const nombre = $("#Nombre").val(),
+        apellido = $("#Apellido").val(),
+        email = $("#Email").val(),
+        telefono = $("#Telefono").val(),
+        mensaje = $("#Mensaje").val();
       $.ajax(
         {
             type: 'POST',
             dataType: 'JSON',
             url: '/Dennys/GuardarClienteContactado',
-            data: {IdCliente: IDCliente, Nombre: nombre, Apellido: apellido, Telefono: telefono, Email:email, Mensaje:mensaje},
+            data: {Nombre: nombre, Apellido: apellido, Telefono: telefono, Email:email, Mensaje:mensaje},
             success:
                 function (response) 
                 {
-
+                  alertaCliente();
                 }
         });
     }

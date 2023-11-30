@@ -840,7 +840,13 @@ p strong {
   margin-top: 2rem;
   padding: 1rem;
 }
-
+.div-imgd{
+ 
+}
+.div-imgd img{
+  width: 100%;
+   border-radius: 10px 10px 0px 0px;
+}
 .card-reseña {
   background-color: #fff;
   border-radius: 8px; 

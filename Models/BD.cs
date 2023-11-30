@@ -2,7 +2,7 @@ using System.Data.SqlClient;
 using Dapper;
 public static class BD
 {
-    private static string connectionString = @"Server=DESKTOP-OF64MA2\SQLEXPRESS;DataBase=ReservaRestaurantes;Trusted_Connection=True;";
+    private static string connectionString = @"Server=localhost;DataBase=ReservaRestaurantes;Trusted_Connection=True;";
     public static Cliente user;
 
     public static void AgregarRestaurante(Restaurante resto)
@@ -50,12 +50,12 @@ public static class BD
         string sp = "sp_Contacto";
         db.Execute(sp, new
         {
-            @IdCliente = contacto.IdCliente,
             @Nombre = contacto.Nombre,
             @Apellido = contacto.Apellido,
             @Telefono = contacto.Telefono,
             @Email = contacto.Email,
-            @Mensaje = contacto.Mensaje
+            @Mensaje = contacto.Mensaje,
+            @IdCliente = contacto.IdCliente
         },
         commandType: System.Data.CommandType.StoredProcedure);
     }
@@ -150,6 +150,26 @@ public static class BD
             commandType: System.Data.CommandType.StoredProcedure).ToList();
         }
         return ListaReservas;
+    }
+
+    public static List<Restaurante> GetListaRestauranteReservaDeUnCliente(int idCliente)
+    {
+        using(SqlConnection db = new SqlConnection(connectionString))
+        {
+            string sp = "sp_GetListaRestauranteReservaDeUnCliente";
+            return db.Query<Restaurante>(sp,new{@IdCliente = idCliente}, 
+            commandType: System.Data.CommandType.StoredProcedure).ToList();
+        }
+    }
+
+     public static List<Cliente> GetInfoReseña(int idRestaurante)
+    {
+        using(SqlConnection db = new SqlConnection(connectionString))
+        {
+            string sp = "sp_GetInfoReseña";
+            return db.Query<Cliente>(sp,new{@IdRestaurante = idRestaurante}, 
+            commandType: System.Data.CommandType.StoredProcedure).ToList();
+        }
     }
    
 }

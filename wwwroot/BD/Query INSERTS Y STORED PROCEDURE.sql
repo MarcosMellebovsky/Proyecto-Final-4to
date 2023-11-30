@@ -62,14 +62,13 @@ BEGIN
 	SELECT * FROM Menu WHERE IdRestaurante = @IdRestaurante
 END
 
-ALTER PROCEDURE sp_GetInfoReseña
-@IdRestaurante int,
-@IdCliente int
+alter PROCEDURE sp_GetInfoReseña
+@IdRestaurante int
 AS 
 BEGIN
-	SELECT R.Valoracion, R.Comentario, C.Nombre, C.Apellido FROM Reseña R
+	SELECT R.Valoracion, R.Comentario, C.Nombre as Nombre, C.Apellido FROM Reseña R
 	INNER JOIN Cliente C ON R.IdCliente = C.IdCliente
-	WHERE R.IdRestaurante = @IdRestaurante AND R.IdCliente = @IdCliente
+	WHERE R.IdRestaurante = @IdRestaurante
 END
 
 
@@ -85,6 +84,15 @@ ALTER PROCEDURE sp_GetListaReservaDeUnCliente
 AS 
 BEGIN
 	SELECT Rese.*, Rest.Nombre as NombreRestaurante, Rest.Imagen AS Imagen FROM Reserva Rese
+	INNER JOIN Restaurante Rest ON Rese.IdRestaurante = Rest.IdRestaurante
+	Where IdCliente = @IdCliente
+END
+
+create PROCEDURE sp_GetListaRestauranteReservaDeUnCliente
+@IdCliente int
+AS 
+BEGIN
+	SELECT Rest.Imagen FROM Reserva Rese
 	INNER JOIN Restaurante Rest ON Rese.IdRestaurante = Rest.IdRestaurante
 	Where IdCliente = @IdCliente
 END
@@ -110,8 +118,8 @@ ALTER PROCEDURE sp_Contacto
 
 AS 
 BEGIN
-	INSERT INTO Contacto(idCliente,Nombre, Apellido,Telefono, Email, Mensaje)
-	VALUES(@idCliente,@Nombre, @Apellido,@Telefono, @Email,@Mensaje )
+	INSERT INTO Contacto(Nombre, Apellido,Telefono, Email, Mensaje, idCliente)
+	VALUES(@Nombre, @Apellido,@Telefono, @Email,@Mensaje, @idCliente )
 END
 
 

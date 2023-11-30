@@ -63,26 +63,26 @@
     </div>
     <div class="formularioo-contacto">
    
-    <form class="formularioo" action='@Url.Action("GuardarClienteContactado", "Dennys")' method="post">
-      <input type="hidden" name="idCliente" value="@BD.user.IdCliente">
+    <form class="formularioo" method="post">
+     
       <label for="name">Nombre</label>
-      <input class="in-ddd" type="text" required name="Nombre" placeholder="nombre" >
+      <input class="in-ddd" type="text" id="Nombre" required name="Nombre" placeholder="Nombre" >
 
 
       <label for="text">Apellido</label>
-      <input class="in-ddd" type="text"required name="Apellido" placeholder="apellido" >
+      <input class="in-ddd" type="text" id="Apellido" required name="Apellido" placeholder="Apellido" >
 
       <label for="text">E-mail</label>
-      <input class="in-ddd" type="email" required name="Email" placeholder="e-mail" >
+      <input class="in-ddd" type="email" id="Email" required name="Email" placeholder="E-mail" >
 
       <label for="Telefono">Telefono</label>
-      <input class="in-ddd" type="tel" required name="Telefono" placeholder="telefono" >
+      <input class="in-ddd" type="tel" id="Telefono" required name="Telefono" placeholder="Telefono" >
       
       <label for="message">Mensaje</label>
-      <textarea class="in-ddd" id="message" name="Mensaje" placeholder="mensaje" ></textarea>
+      <textarea class="in-ddd" id="Mensaje" name="Mensaje" placeholder="Mensaje" ></textarea>
 
       <div class="submitt-enviar">
-        <button onclick="alertaCliente(), GuardarCliente(@BD.user.IdCliente)" class="aaa">
+        <button onclick="GuardarCliente()" class="aaa">
             <a class="botonn">Contáctanos</a>
         </button>
       

@@ -1,3 +1,7 @@
+@{
+  int indice = 0;
+}
+
 <header>
       <nav>
         <div class="navbar navegador ">
@@ -43,14 +47,19 @@
         @foreach (var item in ViewBag.ListaReservas)
         {
             <div class="card-reseña">
-                <div class="dentro-reserva">
-                  <img src="@item.Imagen" alt="">
+                <div class="">
+                <div class="div-imgd">
+                  <img src="@ViewBag.Restaurantes[indice].Imagen" alt="">
+                  </div>
+                  <div class="dentro-reserva">
                     <p>Lugar: @item.NombreRestaurante</p>
-                    <p>Fecha: @item.FechaReserva</p>
+                    <p>Fecha: @item.FechaReserva.ToShortDateString()</p>
                     <p>Hora: @item.HoraReserva</p>
                     <p>Cantidad de Personas: @item.CantidadPersonas</p>
+                    </div>
                 </div>
             </div>
+            indice = indice + 1;
         }
     </div>
 </main>
